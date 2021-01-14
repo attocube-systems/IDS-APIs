@@ -1,0 +1,36 @@
+import ACS
+from about import About
+from access import Access
+from adjustment import Adjustment
+from axis import Axis
+from displacement import Displacement
+from ecu import Ecu
+from manual import Manual
+from network import Network
+from nlc import Nlc
+from pilotlaser import Pilotlaser
+from realtime import Realtime
+from system import System
+from system_service import System_service
+from update import Update
+
+class Device(ACS.Device):
+
+    def __init__ (self, address):
+    
+        super().__init__(address)
+        
+        self.about = About(self)
+        self.access = Access(self)
+        self.adjustment = Adjustment(self)
+        self.axis = Axis(self)
+        self.displacement = Displacement(self)
+        self.ecu = Ecu(self)
+        self.manual = Manual(self)
+        self.network = Network(self)
+        self.nlc = Nlc(self)
+        self.pilotlaser = Pilotlaser(self)
+        self.realtime = Realtime(self)
+        self.system = System(self)
+        self.system_service = System_service(self)
+        self.update = Update(self)
