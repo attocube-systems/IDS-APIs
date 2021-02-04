@@ -79,14 +79,14 @@ int ATTOCUBE_API IDS_adjustment_getAdjustmentEnabled(int deviceHandle, bool* ena
            running measurement, please use the getAxisSignalQuality function.
            
            Important: The baseline and contrast needs to be added, otherwise an overload can 
-           occure without being recognized. Example: baseline 150‰ and contrast 850‰. Just 
+           occure without being recognized. Example: baseline 15permille and contrast 850permille. Just 
            from the contrast it looks good. Adding the baseline the overload is visible.
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  Axis to get the value from [0..2]
 *  @param  warningNo: warningNo
-*  @param  contast: contast Contrast of the base band signal in ‰
-*  @param  baseline: baseline Offset of the contrast measurement in ‰
+*  @param  contast: contast Contrast of the base band signal in permille
+*  @param  baseline: baseline Offset of the contrast measurement in permille
 *  @param  mixcontrast: mixcontrast lower contrast measurment when measuring a mix contrast (indicated by error code)
 *
 *  @return   Result of function
@@ -639,6 +639,22 @@ int ATTOCUBE_API IDS_ecu_getTemperatureInDegrees(int deviceHandle, double* tempe
 *  @return   Result of function
 */
 int ATTOCUBE_API IDS_ecu_setRefractiveIndexCompensationMode(int deviceHandle, int axis, int mode);
+
+
+
+
+
+
+/** @brief @IDS_getLockStatus
+*
+*  This function returns if the device is locked and if the current client is authorized to use the device.
+*
+*  @param  deviceHandle  Handle of device
+*  @param  authorized: authorized Is the client authorized?
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API IDS_getLockStatus(int deviceHandle, bool* locked, bool* authorized);
 
 
 
@@ -1802,7 +1818,8 @@ int ATTOCUBE_API IDS_system_getNbrFeaturesActivated(int deviceHandle, int* nbr);
 *
 *  Reads out the system error. The function returns an integer number which represents 
            the error. The number can be converted into a string using the errorNumberToString 
-           function, which is described below.
+           function.
+           Use this function to query errors occured while starting and running measurements and alignments.
 *
 *  @param  deviceHandle  Handle of device
 *
@@ -1888,6 +1905,7 @@ int ATTOCUBE_API IDS_system_setInitMode(int deviceHandle, int mode);
 /** @brief @IDS_system_startMeasurement
 *
 *  Starts the displacement measurement system state.
+            Please query errors during starting and running measurements by system.getSystemError
 *
 *  @param  deviceHandle  Handle of device
 *
@@ -1903,6 +1921,7 @@ int ATTOCUBE_API IDS_system_startMeasurement(int deviceHandle);
 /** @brief @IDS_system_startOpticsAlignment
 *
 *  Starts the optical alignment system state.
+            Please query errors during starting and running alignments by system.getSystemError
 *
 *  @param  deviceHandle  Handle of device
 *

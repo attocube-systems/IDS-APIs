@@ -29,7 +29,7 @@ class Adjustment():
            running measurement, please use the getAxisSignalQuality function.
            
            Important: The baseline and contrast needs to be added, otherwise an overload can 
-           occure without being recognized. Example: baseline 150‰ and contrast 850‰. Just 
+           occure without being recognized. Example: baseline 15permille and contrast 850permille. Just 
            from the contrast it looks good. Adding the baseline the overload is visible.
 
         Parameters
@@ -41,8 +41,8 @@ class Adjustment():
         Returns
         -------
         warningNo: warningNo
-        contast: contast Contrast of the base band signal in ‰
-        baseline: baseline Offset of the contrast measurement in ‰
+        contast: contast Contrast of the base band signal in permille
+        baseline: baseline Offset of the contrast measurement in permille
         mixcontrast: mixcontrast lower contrast measurment when measuring a mix contrast (indicated by error code)
         """
         response = self.device.request(self.interface_name + "." + "getContrastInPermille", [axis])

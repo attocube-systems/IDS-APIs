@@ -3,7 +3,7 @@ function [errNo] = IDS_system_stopMeasurement(tcp)
 %
 % param[in] tcp : TCP/IP connection ID
 % param[out]
-%           errNo: errNo
+%           errNo: errNo Error on initiating the system mode change
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.ids.system.stopMeasurement", "params": [], "id": 1, "api": 2}');
 

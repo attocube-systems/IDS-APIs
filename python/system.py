@@ -100,7 +100,8 @@ class System():
         """
         Reads out the system error. The function returns an integer number which represents 
            the error. The number can be converted into a string using the errorNumberToString 
-           function, which is described below.
+           function.
+           Use this function to query errors occured while starting and running measurements and alignments.
 
         Parameters
         ----------
@@ -183,6 +184,7 @@ class System():
     def startMeasurement(self):
         """
         Starts the displacement measurement system state.
+            Please query errors during starting and running measurements by system.getSystemError
 
         Parameters
         ----------
@@ -197,6 +199,7 @@ class System():
     def startOpticsAlignment(self):
         """
         Starts the optical alignment system state.
+            Please query errors during starting and running alignments by system.getSystemError
 
         Parameters
         ----------

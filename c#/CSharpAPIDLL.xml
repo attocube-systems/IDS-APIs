@@ -832,14 +832,14 @@
             running measurement, please use the getAxisSignalQuality function.
             
             Important: The baseline and contrast needs to be added, otherwise an overload can
-            occure without being recognized. Example: baseline 150â€° and contrast 850â€°. Just
+            occure without being recognized. Example: baseline 15permille and contrast 850permille. Just
             from the contrast it looks good. Adding the baseline the overload is visible.
             </summary>
             <param name="axis">Axis to get the value from [0..2]</param>
             <returns>
             warningNo: warningNo
-            contast: contast Contrast of the base band signal in â€°
-            baseline: baseline Offset of the contrast measurement in â€°
+            contast: contast Contrast of the base band signal in permille
+            baseline: baseline Offset of the contrast measurement in permille
             mixcontrast: mixcontrast lower contrast measurment when measuring a mix contrast (indicated by error code)
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
@@ -1149,6 +1149,15 @@
             </summary>
             <param name="axis">Axis to set the mode for.Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
             <param name="mode">mode can be 0 for direct ECU mode, 1 to take the manual values and calculate the refractive index from this or 2 to directly take the set refrative index</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.GetLockStatus">
+            <summary>
+            This function returns if the device is locked and if the current client is authorized to use the device.
+            </summary>
+            <returns>
+            authorized: authorized Is the client authorized?
+            </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.IDS.AttocubeIDS.GrantAccess(System.String)">
@@ -1703,7 +1712,8 @@
             <summary>
             Reads out the system error. The function returns an integer number which represents
             the error. The number can be converted into a string using the errorNumberToString
-            function, which is described below.
+            function.
+            Use this function to query errors occured while starting and running measurements and alignments.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1744,12 +1754,14 @@
         <member name="M:Attocube.IDS.AttocubeIDS.System_StartMeasurement">
             <summary>
             Starts the displacement measurement system state.
+            Please query errors during starting and running measurements by system.getSystemError
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.IDS.AttocubeIDS.System_StartOpticsAlignment">
             <summary>
             Starts the optical alignment system state.
+            Please query errors during starting and running alignments by system.getSystemError
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
