@@ -1156,6 +1156,7 @@
             This function returns if the device is locked and if the current client is authorized to use the device.
             </summary>
             <returns>
+            locked: locked Is the device locked?
             authorized: authorized Is the client authorized?
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
@@ -1284,7 +1285,6 @@
             <param name="axis">Axis [0|1|2] of the IDS</param>
             <returns>
             histogram: stringJson dumped histogram array
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1295,7 +1295,6 @@
             <param name="axis">Axis [0|1|2] of the IDS</param>
             <returns>
             lut: stringJson dumped LUT array with 512 integers
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1325,7 +1324,6 @@
             </summary>
             <returns>
             lut: stringJson dumped LUT array with 512 integers
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1655,7 +1653,6 @@
             </summary>
             <returns>
             mode: mode Values: "system idle", "measurement starting", "measurement running", "optics alignment starting", "optics alignment running", "test channels enabled"
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1665,7 +1662,6 @@
             </summary>
             <returns>
             type: type Type of IDS (e.g. "IDS3010")
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1676,7 +1672,6 @@
             <param name="featurenumber">Number of feature</param>
             <returns>
             names: names The name of the corresponding feature
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1686,7 +1681,6 @@
             </summary>
             <returns>
             version: version Version in the form X.Y.Z
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1790,7 +1784,6 @@
             </summary>
             <returns>
             value_string1: string: Comma separated list of packages
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1801,7 +1794,6 @@
             <param name="pckg">string: Package name</param>
             <returns>
             value_string1: string: License for this package
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1819,7 +1811,6 @@
             <param name="errNbr">interger: Error code to translate</param>
             <returns>
             value_string1: string: Error recommendation (currently returning an int = 0 until we have recommendations)
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1831,7 +1822,6 @@
             <param name="errNbr">interger: Error code to translate</param>
             <returns>
             value_string1: string: Error description
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1847,7 +1837,6 @@
             </summary>
             <returns>
             value_string1: string: actual device name
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1857,7 +1846,6 @@
             </summary>
             <returns>
             value_string1: string: The firmware version
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1867,7 +1855,6 @@
             </summary>
             <returns>
             value_string1: string: flux code
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1877,7 +1864,6 @@
             </summary>
             <returns>
             available: available
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1887,7 +1873,6 @@
             </summary>
             <returns>
             value_string1: string: Mac address of the system
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1897,7 +1882,6 @@
             </summary>
             <returns>
             value_string1: string: Serial number
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1911,8 +1895,8 @@
             <summary>
             Change the wifi configuration and applies it
             </summary>
-            <param name="wifi">mode: 0: Access point, 1: Wifi client</param>
-            <param name="SSID"></param>
+            <param name="mode">0: Access point, 1: Wifi client</param>
+            <param name="ssid"></param>
             <param name="psk">Pre-shared key</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1928,7 +1912,6 @@
             </summary>
             <returns>
             Default: Default gateway
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1939,7 +1922,6 @@
             <param name="priority">of DNS resolver (Usually: 0 = Default, 1 = Backup)</param>
             <returns>
             IP: IP address of DNS resolver
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1967,7 +1949,6 @@
             </summary>
             <returns>
             IP: IP address as string
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1977,7 +1958,6 @@
             </summary>
             <returns>
             Proxy: Proxy Server String, empty for no proxy
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1987,7 +1967,6 @@
             </summary>
             <returns>
             IP: IP address as string
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1997,7 +1976,6 @@
             </summary>
             <returns>
             Subnet: Subnet mask as string
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2006,7 +1984,7 @@
             Get the operation mode of the wifi adapter
             </summary>
             <returns>
-            wifi: wifi mode: 0: Access point, 1: Wifi client
+            mode: mode 0: Access point, 1: Wifi client
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2016,7 +1994,6 @@
             </summary>
             <returns>
             psk: psk Pre-shared key
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2035,7 +2012,6 @@
             </summary>
             <returns>
             SSID: SSID
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2093,7 +2069,7 @@
             <summary>
             Change the operation mode of the wifi adapter
             </summary>
-            <param name="wifi">mode: 0: Access point, 1: Wifi client</param>
+            <param name="mode">0: Access point, 1: Wifi client</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.IDS.AttocubeIDS.Network_SetWifiPassphrase(System.String)">
@@ -2107,7 +2083,7 @@
             <summary>
             Change the SSID of the network hosted (mode: Access point) or connected to (mode: client)
             </summary>
-            <param name="SSID"></param>
+            <param name="ssid"></param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.IDS.AttocubeIDS.Network_Verify">

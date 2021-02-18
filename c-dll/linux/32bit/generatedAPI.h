@@ -650,6 +650,7 @@ int ATTOCUBE_API IDS_ecu_setRefractiveIndexCompensationMode(int deviceHandle, in
 *  This function returns if the device is locked and if the current client is authorized to use the device.
 *
 *  @param  deviceHandle  Handle of device
+*  @param  locked: locked Is the device locked?
 *  @param  authorized: authorized Is the client authorized?
 *
 *  @return   Result of function
@@ -2205,13 +2206,13 @@ int ATTOCUBE_API system_network_apply(int deviceHandle);
 *  Change the wifi configuration and applies it
 *
 *  @param  deviceHandle  Handle of device
-*  @param  wifi:  mode: 0: Access point, 1: Wifi client
-*  @param  SSID: 
+*  @param  mode:  0: Access point, 1: Wifi client
+*  @param  ssid: 
 *  @param  psk:  Pre-shared key
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API system_network_configureWifi(int deviceHandle, int wifi, const char* SSID, const char* psk);
+int ATTOCUBE_API system_network_configureWifi(int deviceHandle, int mode, const char* ssid, const char* psk);
 
 
 
@@ -2373,11 +2374,11 @@ int ATTOCUBE_API system_network_getSubnetMask(int deviceHandle, char* Subnet, in
 *  Get the operation mode of the wifi adapter
 *
 *  @param  deviceHandle  Handle of device
-*  @param  wifi: wifi mode: 0: Access point, 1: Wifi client
+*  @param  mode: mode 0: Access point, 1: Wifi client
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API system_network_getWifiMode(int deviceHandle, int* wifi);
+int ATTOCUBE_API system_network_getWifiMode(int deviceHandle, int* mode);
 
 
 
@@ -2552,11 +2553,11 @@ int ATTOCUBE_API system_network_setSubnetMask(int deviceHandle, const char* netm
 *  Change the operation mode of the wifi adapter
 *
 *  @param  deviceHandle  Handle of device
-*  @param  wifi:  mode: 0: Access point, 1: Wifi client
+*  @param  mode:  0: Access point, 1: Wifi client
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API system_network_setWifiMode(int deviceHandle, int wifi);
+int ATTOCUBE_API system_network_setWifiMode(int deviceHandle, int mode);
 
 
 
@@ -2584,11 +2585,11 @@ int ATTOCUBE_API system_network_setWifiPassphrase(int deviceHandle, const char* 
 *  Change the SSID of the network hosted (mode: Access point) or connected to (mode: client)
 *
 *  @param  deviceHandle  Handle of device
-*  @param  SSID: 
+*  @param  ssid: 
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API system_network_setWifiSSID(int deviceHandle, const char* SSID);
+int ATTOCUBE_API system_network_setWifiSSID(int deviceHandle, const char* ssid);
 
 
 

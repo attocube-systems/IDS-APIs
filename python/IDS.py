@@ -34,3 +34,6 @@ class Device(ACS.Device):
         self.system = System(self)
         self.system_service = System_service(self)
         self.update = Update(self)
+
+def discover():
+    return Device.discover("ids")
