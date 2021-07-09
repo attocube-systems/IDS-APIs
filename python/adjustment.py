@@ -36,11 +36,11 @@ class Adjustment():
         ----------
         axis:  Axis to get the value from [0..2]
         ignoreFunctionError : boolean (default: True)
-            True = Do not raise an AttoException if an warning code is returned.
+            True = Do not raise an AttoException if a warning code is returned.
 
         Returns
         -------
-        warningNo: warningNo
+        warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
         contast: contast Contrast of the base band signal in permille
         baseline: baseline Offset of the contrast measurement in permille
         mixcontrast: mixcontrast lower contrast measurment when measuring a mix contrast (indicated by error code)

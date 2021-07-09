@@ -186,3 +186,17 @@ class System_service():
         self.device.handleError(response)
         return 
 
+    def updateTimeFromInternet(self):
+        """
+        Update system time by querying attocube.com
+
+        Parameters
+        ----------
+
+        Returns
+        -------
+        """
+        response = self.device.request(self.interface_name + "." + "updateTimeFromInternet")
+        self.device.handleError(response)
+        return 
+

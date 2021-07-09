@@ -80,6 +80,7 @@ class Axis():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 
     def setPassMode(self, mode):
@@ -98,5 +99,6 @@ class Axis():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 

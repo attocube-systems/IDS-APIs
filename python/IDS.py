@@ -14,6 +14,11 @@ from system import System
 from system_service import System_service
 from update import Update
 
+try:
+    from streaming.streaming import Streaming
+except Exception:
+    pass
+
 class Device(ACS.Device):
 
     def __init__ (self, address):
@@ -34,6 +39,13 @@ class Device(ACS.Device):
         self.system = System(self)
         self.system_service = System_service(self)
         self.update = Update(self)
+        try:
+            self.streaming = Streaming(self)
+        except NameError as e:
+            if "Streaming" in str(e):
+                print("Warning: Streaming is not supported on your platform")
+            else:
+                raise e
 
 def discover():
     return Device.discover("ids")

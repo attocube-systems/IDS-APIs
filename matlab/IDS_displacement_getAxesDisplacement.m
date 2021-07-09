@@ -3,7 +3,7 @@ function [warningNo, displacement0, displacement1, displacement2] = IDS_displace
 %
 % param[in] tcp : TCP/IP connection ID
 % param[out]
-%           warningNo: warningNo
+%           warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 %           displacement0: displacement0 displacement of the axis 0 in pm
 %           displacement1: displacement1 displacement of the axis 1 in pm
 %           displacement2: displacement2 displacement of the axis 2 in pm

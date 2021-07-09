@@ -12,7 +12,7 @@ function [warningNo, contrast, baseline] = IDS_displacement_getSignalQuality(tcp
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]
 % param[out]
-%           warningNo: warningNo
+%           warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 %           contrast: contrast Contrast of the base band signal in ‰
 %           baseline: baseline Offset of the contrast measurement in ‰
 

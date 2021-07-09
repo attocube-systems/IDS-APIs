@@ -384,6 +384,7 @@ class Realtime():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 
     def setPeriodHsslGap(self, value):
@@ -402,6 +403,7 @@ class Realtime():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 
     def setPeriodSinCosClk(self, value):
@@ -420,6 +422,7 @@ class Realtime():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 
     def setResolutionBissC(self, value):
@@ -438,6 +441,7 @@ class Realtime():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 
     def setResolutionHsslHigh(self, value):
@@ -456,6 +460,7 @@ class Realtime():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 
     def setResolutionHsslLow(self, value):
@@ -474,6 +479,7 @@ class Realtime():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 
     def setResolutionSinCos(self, value):
@@ -492,6 +498,7 @@ class Realtime():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 
     def setRtDistanceMode(self, value):
@@ -513,6 +520,7 @@ class Realtime():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 
     def setRtOutMode(self, value):
@@ -534,5 +542,6 @@ class Realtime():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 

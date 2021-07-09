@@ -4,7 +4,7 @@ function [warningNo, displacement] = IDS_displacement_getAxisDisplacement(tcp, a
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]
 % param[out]
-%           warningNo: warningNo
+%           warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 %           displacement: displacement Displacement of the axis in pm
 
 

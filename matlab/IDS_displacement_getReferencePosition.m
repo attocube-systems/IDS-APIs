@@ -7,7 +7,7 @@ function [warningNo, position] = IDS_displacement_getReferencePosition(tcp, axis
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]
 % param[out]
-%           warningNo: warningNo
+%           warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 %           position: position reference position of the axis in pm
 
 

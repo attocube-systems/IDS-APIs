@@ -84,7 +84,7 @@ int ATTOCUBE_API IDS_adjustment_getAdjustmentEnabled(int deviceHandle, bool* ena
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  Axis to get the value from [0..2]
-*  @param  warningNo: warningNo
+*  @param  warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 *  @param  contast: contast Contrast of the base band signal in permille
 *  @param  baseline: baseline Offset of the contrast measurement in permille
 *  @param  mixcontrast: mixcontrast lower contrast measurment when measuring a mix contrast (indicated by error code)
@@ -203,7 +203,7 @@ int ATTOCUBE_API IDS_axis_setPassMode(int deviceHandle, int mode);
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  warningNo: warningNo
+*  @param  warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 *  @param  position: position position of the axis in pm
 *
 *  @return   Result of function
@@ -224,7 +224,7 @@ int ATTOCUBE_API IDS_displacement_getAbsolutePosition(int deviceHandle, int axis
            and the continuously updated displacement register value for all three axes.
 *
 *  @param  deviceHandle  Handle of device
-*  @param  warningNo: warningNo
+*  @param  warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 *  @param  position0: position0 position of the axis 0 in pm
 *  @param  position1: position1 position of the axis 1 in pm
 *  @param  position2: position2 position of the axis 2 in pm
@@ -260,7 +260,7 @@ int ATTOCUBE_API IDS_displacement_getAverageN(int deviceHandle, int* averageN);
 *  Reads out the displacement values of all three measurement axes.
 *
 *  @param  deviceHandle  Handle of device
-*  @param  warningNo: warningNo
+*  @param  warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 *  @param  displacement0: displacement0 displacement of the axis 0 in pm
 *  @param  displacement1: displacement1 displacement of the axis 1 in pm
 *  @param  displacement2: displacement2 displacement of the axis 2 in pm
@@ -280,7 +280,7 @@ int ATTOCUBE_API IDS_displacement_getAxesDisplacement(int deviceHandle, int* war
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  warningNo: warningNo
+*  @param  warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 *  @param  displacement: displacement Displacement of the axis in pm
 *
 *  @return   Result of function
@@ -306,7 +306,7 @@ int ATTOCUBE_API IDS_displacement_getAxisDisplacement(int deviceHandle, int axis
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  warningNo: warningNo
+*  @param  warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 *  @param  contrast: contrast Contrast of the base band signal in ‰
 *  @param  baseline: baseline Offset of the contrast measurement in ‰
 *
@@ -344,7 +344,7 @@ int ATTOCUBE_API IDS_displacement_getMeasurementEnabled(int deviceHandle, bool* 
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  warningNo: warningNo
+*  @param  warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 *  @param  position: position reference position of the axis in pm
 *
 *  @return   Result of function
@@ -364,7 +364,7 @@ int ATTOCUBE_API IDS_displacement_getReferencePosition(int deviceHandle, int axi
            that point.
 *
 *  @param  deviceHandle  Handle of device
-*  @param  warningNo: warningNo
+*  @param  warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 *  @param  position0: position0 position of the axis 0 in pm
 *  @param  position1: position1 position of the axis 1 in pm
 *  @param  position2: position2 position of the axis 2 in pm
@@ -392,7 +392,7 @@ int ATTOCUBE_API IDS_displacement_getReferencePositions(int deviceHandle, int* w
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  warningNo: warningNo
+*  @param  warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 *  @param  contrast: contrast Contrast of the base band signal in ‰
 *  @param  baseline: baseline Offset of the contrast measurement in ‰
 *
@@ -2636,6 +2636,21 @@ int ATTOCUBE_API system_rebootSystem(int deviceHandle);
 *  @return   Result of function
 */
 int ATTOCUBE_API system_setDeviceName(int deviceHandle, const char* name);
+
+
+
+
+
+
+/** @brief @system_updateTimeFromInternet
+*
+*  Update system time by querying attocube.com
+*
+*  @param  deviceHandle  Handle of device
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API system_updateTimeFromInternet(int deviceHandle);
 
 
 

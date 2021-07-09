@@ -12,7 +12,7 @@ function [warningNo, contast, baseline, mixcontrast] = IDS_adjustment_getContras
 % param[in] tcp : TCP/IP connection ID
 %           axis:  Axis to get the value from [0..2]
 % param[out]
-%           warningNo: warningNo
+%           warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 %           contast: contast Contrast of the base band signal in permille
 %           baseline: baseline Offset of the contrast measurement in permille
 %           mixcontrast: mixcontrast lower contrast measurment when measuring a mix contrast (indicated by error code)

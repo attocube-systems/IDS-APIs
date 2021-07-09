@@ -17,11 +17,11 @@ class Displacement():
         ----------
         axis:  [0|1|2]
         ignoreFunctionError : boolean (default: True)
-            True = Do not raise an AttoException if an warning code is returned.
+            True = Do not raise an AttoException if a warning code is returned.
 
         Returns
         -------
-        warningNo: warningNo
+        warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
         position: position position of the axis in pm
         """
         response = self.device.request(self.interface_name + "." + "getAbsolutePosition", [axis])
@@ -39,11 +39,11 @@ class Displacement():
         Parameters
         ----------
         ignoreFunctionError : boolean (default: True)
-            True = Do not raise an AttoException if an warning code is returned.
+            True = Do not raise an AttoException if a warning code is returned.
 
         Returns
         -------
-        warningNo: warningNo
+        warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
         position0: position0 position of the axis 0 in pm
         position1: position1 position of the axis 1 in pm
         position2: position2 position of the axis 2 in pm
@@ -75,11 +75,11 @@ class Displacement():
         Parameters
         ----------
         ignoreFunctionError : boolean (default: True)
-            True = Do not raise an AttoException if an warning code is returned.
+            True = Do not raise an AttoException if a warning code is returned.
 
         Returns
         -------
-        warningNo: warningNo
+        warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
         displacement0: displacement0 displacement of the axis 0 in pm
         displacement1: displacement1 displacement of the axis 1 in pm
         displacement2: displacement2 displacement of the axis 2 in pm
@@ -96,11 +96,11 @@ class Displacement():
         ----------
         axis:  [0|1|2]
         ignoreFunctionError : boolean (default: True)
-            True = Do not raise an AttoException if an warning code is returned.
+            True = Do not raise an AttoException if a warning code is returned.
 
         Returns
         -------
-        warningNo: warningNo
+        warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
         displacement: displacement Displacement of the axis in pm
         """
         response = self.device.request(self.interface_name + "." + "getAxisDisplacement", [axis])
@@ -123,11 +123,11 @@ class Displacement():
         ----------
         axis:  [0|1|2]
         ignoreFunctionError : boolean (default: True)
-            True = Do not raise an AttoException if an warning code is returned.
+            True = Do not raise an AttoException if a warning code is returned.
 
         Returns
         -------
-        warningNo: warningNo
+        warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
         contrast: contrast Contrast of the base band signal in ‰
         baseline: baseline Offset of the contrast measurement in ‰
         """
@@ -161,11 +161,11 @@ class Displacement():
         ----------
         axis:  [0|1|2]
         ignoreFunctionError : boolean (default: True)
-            True = Do not raise an AttoException if an warning code is returned.
+            True = Do not raise an AttoException if a warning code is returned.
 
         Returns
         -------
-        warningNo: warningNo
+        warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
         position: position reference position of the axis in pm
         """
         response = self.device.request(self.interface_name + "." + "getReferencePosition", [axis])
@@ -182,11 +182,11 @@ class Displacement():
         Parameters
         ----------
         ignoreFunctionError : boolean (default: True)
-            True = Do not raise an AttoException if an warning code is returned.
+            True = Do not raise an AttoException if a warning code is returned.
 
         Returns
         -------
-        warningNo: warningNo
+        warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
         position0: position0 position of the axis 0 in pm
         position1: position1 position of the axis 1 in pm
         position2: position2 position of the axis 2 in pm
@@ -211,11 +211,11 @@ class Displacement():
         ----------
         axis:  [0|1|2]
         ignoreFunctionError : boolean (default: True)
-            True = Do not raise an AttoException if an warning code is returned.
+            True = Do not raise an AttoException if a warning code is returned.
 
         Returns
         -------
-        warningNo: warningNo
+        warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
         contrast: contrast Contrast of the base band signal in ‰
         baseline: baseline Offset of the contrast measurement in ‰
         """

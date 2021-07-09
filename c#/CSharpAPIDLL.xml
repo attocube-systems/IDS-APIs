@@ -837,7 +837,7 @@
             </summary>
             <param name="axis">Axis to get the value from [0..2]</param>
             <returns>
-            warningNo: warningNo
+            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
             contast: contast Contrast of the base band signal in permille
             baseline: baseline Offset of the contrast measurement in permille
             mixcontrast: mixcontrast lower contrast measurment when measuring a mix contrast (indicated by error code)
@@ -899,7 +899,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            warningNo: warningNo
+            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
             position: position position of the axis in pm
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
@@ -913,7 +913,7 @@
             and the continuously updated displacement register value for all three axes.
             </summary>
             <returns>
-            warningNo: warningNo
+            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
             position0: position0 position of the axis 0 in pm
             position1: position1 position of the axis 1 in pm
             position2: position2 position of the axis 2 in pm
@@ -935,7 +935,7 @@
             Reads out the displacement values of all three measurement axes.
             </summary>
             <returns>
-            warningNo: warningNo
+            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
             displacement0: displacement0 displacement of the axis 0 in pm
             displacement1: displacement1 displacement of the axis 1 in pm
             displacement2: displacement2 displacement of the axis 2 in pm
@@ -948,7 +948,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            warningNo: warningNo
+            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
             displacement: displacement Displacement of the axis in pm
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
@@ -967,7 +967,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            warningNo: warningNo
+            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
             contrast: contrast Contrast of the base band signal in â€°
             baseline: baseline Offset of the contrast measurement in â€°
             </returns>
@@ -991,7 +991,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            warningNo: warningNo
+            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
             position: position reference position of the axis in pm
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
@@ -1004,7 +1004,7 @@
             that point.
             </summary>
             <returns>
-            warningNo: warningNo
+            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
             position0: position0 position of the axis 0 in pm
             position1: position1 position of the axis 1 in pm
             position2: position2 position of the axis 2 in pm
@@ -1025,7 +1025,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            warningNo: warningNo
+            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
             contrast: contrast Contrast of the base band signal in â€°
             baseline: baseline Offset of the contrast measurement in â€°
             </returns>
@@ -2103,6 +2103,12 @@
             Set custom name for the device
             </summary>
             <param name="name">string: device name</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.UpdateTimeFromInternet">
+            <summary>
+            Update system time by querying attocube.com
+            </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.IDS.AttocubeIDS.Update_GetLicenseUpdateProgress">
