@@ -224,7 +224,7 @@ class Displacement():
         return response['result'][0], response['result'][1], response['result'][2]
 
     def linProc(self, axis, fringesnbr, samplesperfringe, set):
-        """
+      """
         Important note: This function is not actively supported anymore. With IDS firmware 1.7.0, a new set of functions corresponding to the linearization procedure was introduced and effectively outdated this function.
            
            Starts linearization procedure (additional IDS feature).
@@ -243,12 +243,14 @@ class Displacement():
         -------
         lintable: lintable String, which contains all 512 phase related correction values
         nonlinearamp: nonlinearamp String which contains the residual positive and negative maximal nonlinear amplitude
-        """
+      """
+      try:
         self.device.tcp.settimeout(100.0)
         response = self.device.request(self.interface_name + "." + "linProc", [axis, fringesnbr, samplesperfringe, set])
-        self.device.tcp.settimeout(10)
         self.device.handleError(response)
         return response['result'][1], response['result'][2]
+      finally:
+        self.device.tcp.settimeout(10)
 
     def setAverageN(self, value):
         """

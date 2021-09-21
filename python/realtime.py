@@ -102,8 +102,8 @@ class Realtime():
 
         Returns
         -------
-        enabled: enabled  0 - the Anti-Aliasing Filter is disabled 
-             1 - the Anti-Aliasing Filter is enabled
+        enabled: enabled false - the Anti-Aliasing Filter is disabled 
+             true - the Anti-Aliasing Filter is enabled
         """
         response = self.device.request(self.interface_name + "." + "getAafEnabled")
         self.device.handleError(response)

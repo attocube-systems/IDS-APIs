@@ -1188,7 +1188,7 @@ int ATTOCUBE_API IDS_pilotlaser_getEnabled(int deviceHandle, bool* enable);
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API IDS_realtime_AafIsEnabled(int deviceHandle, int* enabled);
+int ATTOCUBE_API IDS_realtime_AafIsEnabled(int deviceHandle, bool* enabled);
 
 
 
@@ -1277,12 +1277,12 @@ int ATTOCUBE_API IDS_realtime_getAafAttenuation(int deviceHandle, int* attenuati
 *  Checks if the anti-aliasing filter is enabled.
 *
 *  @param  deviceHandle  Handle of device
-*  @param  enabled: enabled  0 - the Anti-Aliasing Filter is disabled 
-             1 - the Anti-Aliasing Filter is enabled
+*  @param  enabled: enabled false - the Anti-Aliasing Filter is disabled 
+             true - the Anti-Aliasing Filter is enabled
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API IDS_realtime_getAafEnabled(int deviceHandle, int* enabled);
+int ATTOCUBE_API IDS_realtime_getAafEnabled(int deviceHandle, bool* enabled);
 
 
 
@@ -1501,7 +1501,7 @@ int ATTOCUBE_API IDS_realtime_getRtOutMode(int deviceHandle, int* rtOutMode);
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API IDS_realtime_getTestChannelEnabled(int deviceHandle, int* enabled);
+int ATTOCUBE_API IDS_realtime_getTestChannelEnabled(int deviceHandle, bool* enabled);
 
 
 
@@ -2636,6 +2636,42 @@ int ATTOCUBE_API system_rebootSystem(int deviceHandle);
 *  @return   Result of function
 */
 int ATTOCUBE_API system_setDeviceName(int deviceHandle, const char* name);
+
+
+
+
+
+
+/** @brief @system_setTime
+*
+*  Set system time manually
+*
+*  @param  deviceHandle  Handle of device
+*  @param  day:  integer: Day (1-31)
+*  @param  month:  integer: Day (1-12)
+*  @param  year:  integer: Day (eg. 2021)
+*  @param  hour:  integer: Day (0-23)
+*  @param  minute:  integer: Day (0-59)
+*  @param  second:  integer: Day (0-59)
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API system_setTime(int deviceHandle, int day, int month, int year, int hour, int minute, int second);
+
+
+
+
+
+
+/** @brief @system_softReset
+*
+*  Performs a soft reset (Reset without deleting the network settings). Please reboot the device directly afterwards.
+*
+*  @param  deviceHandle  Handle of device
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API system_softReset(int deviceHandle);
 
 
 

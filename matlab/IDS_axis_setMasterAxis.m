@@ -9,8 +9,8 @@ function [errNo] = IDS_axis_setMasterAxis(tcp, axis)
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.ids.axis.setMasterAxis", "params": [%i], "id": 1, "api": 2}', axis);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);
@@ -20,8 +20,8 @@ if errNo == 0
 else
     data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.ids.axis.discard", "params": [], "id": 1, "api": 2}');
 end
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 
 end
 

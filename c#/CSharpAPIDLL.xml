@@ -1438,7 +1438,7 @@
             Checks if the anti-aliasing filter is enabled.
             </summary>
             <returns>
-            enabled: enabled  0 - the Anti-Aliasing Filter is disabled1 - the Anti-Aliasing Filter is enabled
+            enabled: enabled false - the Anti-Aliasing Filter is disabledtrue - the Anti-Aliasing Filter is enabled
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2103,6 +2103,24 @@
             Set custom name for the device
             </summary>
             <param name="name">string: device name</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.SetTime(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set system time manually
+            </summary>
+            <param name="day">integer: Day (1-31)</param>
+            <param name="month">integer: Day (1-12)</param>
+            <param name="year">integer: Day (eg. 2021)</param>
+            <param name="hour">integer: Day (0-23)</param>
+            <param name="minute">integer: Day (0-59)</param>
+            <param name="second">integer: Day (0-59)</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.SoftReset">
+            <summary>
+            Performs a soft reset (Reset without deleting the network settings). Please reboot the device directly afterwards.
+            </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.IDS.AttocubeIDS.UpdateTimeFromInternet">

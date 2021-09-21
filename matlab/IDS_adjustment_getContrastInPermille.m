@@ -20,8 +20,8 @@ function [warningNo, contast, baseline, mixcontrast] = IDS_adjustment_getContras
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.ids.adjustment.getContrastInPermille", "params": [%i], "id": 1, "api": 2}', axis);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 warningNo = data.result (1);

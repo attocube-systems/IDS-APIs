@@ -67,7 +67,14 @@ class Streaming():
 
     def startBackgroundStreaming(self, isMaster, intervalInMicroseconds, filePath, bufferSize=2<<20, axis0=False, axis1=False, axis2=False):
         """
-        Starts concurrent and permanent position streaming to file in background
+        Starts concurrent and permanent position streaming to file in background.
+        Programm must run in a main function:
+
+        def main():
+            do_everything()
+
+        if __name__ == '__main__':
+            main()
 
         Parameters
         ----------

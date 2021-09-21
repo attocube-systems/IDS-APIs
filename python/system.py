@@ -143,7 +143,7 @@ class System():
         return 
 
     def resetError(self, perform):
-        """
+      """
         Resets a measurement error that can have occurred with the aim to continue the interrupted measurement. It is configurable if an additional renormalization process (please refer to the IDS User Manual) should be performed or not.
            
            This function can be used for two concerns:
@@ -159,12 +159,14 @@ class System():
 
         Returns
         -------
-        """
+      """
+      try:
         self.device.tcp.settimeout(20.0)
         response = self.device.request(self.interface_name + "." + "resetError", [perform])
-        self.device.tcp.settimeout(10)
         self.device.handleError(response)
         return 
+      finally:
+        self.device.tcp.settimeout(10)
 
     def setInitMode(self, mode):
         """
