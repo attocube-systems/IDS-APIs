@@ -3,6 +3,7 @@ import ctypes
 from .dll_wrapper import _GetLastStreamError, \
                          _OpenStream, \
                          _CloseStream, \
+                         _GetPacketSize, \
                          _ReadStream, \
                          _DecodeStreamSingle, \
                          _StartStreamRecording, \
@@ -19,7 +20,7 @@ class Stream():
         isMaster : bool
             Master
         intervalInMicroseconds : int
-            Sample rate of the position samples
+            Sample interval (in us) of the position samples
         filePath : str, optional
             If defined, stream recording is started automatically to the given file.
         axis0 : bool, default: False
@@ -195,6 +196,13 @@ class Stream():
         axis2 : list
             List containing positions of axis 2 in pm
         """
+        _packetSize = _GetPacketSize(ctypes.c_void_p(self.handle))
+        if _packetSize <= 0:
+            raise Exception("Stream is not opened")
+
+        # For direct decoding, appropriate buffer sizes are necessary!
+        bufferSize = (bufferSize // _packetSize) * _packetSize
+
         buffer = self.readRaw(bufferSize)
         return self.decodeBuffer(buffer)
 

@@ -23,7 +23,7 @@ class Streaming():
         isMaster : bool
             Master
         intervalInMicroseconds : int
-            Sample rate of the position samples
+            Sample interval (in us) of the position samples
         filePath : str, optional
             If defined, stream recording is started automatically to the given file.
         axis0 : bool, default: False
@@ -81,7 +81,7 @@ class Streaming():
         isMaster : bool
             Master
         intervalInMicroseconds : int
-            Sample rate of the position samples
+            Sample interval (in us) of the position samples
         filePath : str
             target file
         bufferSize : int

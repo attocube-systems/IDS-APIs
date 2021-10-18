@@ -26,6 +26,9 @@ _OpenStream.restype = ctypes.c_void_p
 
 _CloseStream = API.CloseStream
 
+_GetPacketSize = API.GetPacketSize
+_GetPacketSize.restype = ctypes.c_int
+
 _ReadStream = API.ReadStream
 _ReadStream.restype = ctypes.c_int
 
