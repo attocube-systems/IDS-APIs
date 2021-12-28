@@ -9,6 +9,10 @@ from .stream import Stream
 
 from time import sleep
 
+############
+### BETA ###
+############
+
 class Streaming():
     def __init__(self, device):
         self.device = device

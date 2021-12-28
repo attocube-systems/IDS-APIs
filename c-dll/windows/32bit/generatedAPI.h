@@ -2084,6 +2084,21 @@ int ATTOCUBE_API system_factoryReset(int deviceHandle);
 
 
 
+/** @brief @system_functions_checkAMCinRack
+*
+*  If AMC is on Rack position 0, use it as DHCP server, else use it as DHCP client
+*
+*  @param  deviceHandle  Handle of device
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API system_functions_checkAMCinRack(int deviceHandle);
+
+
+
+
+
+
 /** @brief @system_getDeviceName
 *
 *  Get the actual device name

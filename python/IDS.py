@@ -5,6 +5,7 @@ from adjustment import Adjustment
 from axis import Axis
 from displacement import Displacement
 from ecu import Ecu
+from functions import Functions
 from manual import Manual
 from network import Network
 from nlc import Nlc
@@ -31,6 +32,7 @@ class Device(ACS.Device):
         self.axis = Axis(self)
         self.displacement = Displacement(self)
         self.ecu = Ecu(self)
+        self.functions = Functions(self)
         self.manual = Manual(self)
         self.network = Network(self)
         self.nlc = Nlc(self)

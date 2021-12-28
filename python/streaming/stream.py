@@ -8,6 +8,11 @@ from .dll_wrapper import _GetLastStreamError, \
                          _DecodeStreamSingle, \
                          _StartStreamRecording, \
                          _StopStreamRecording
+
+############
+### BETA ###
+############
+
 class Stream():
     def __init__(self, deviceAddress, isMaster, intervalInMicroseconds, filePath=None, axis0=False, axis1=False, axis2=False):
         """

@@ -4,6 +4,10 @@ import os
 import os.path
 import platform
 
+############
+### BETA ###
+############
+
 CURRENT_PATH = os.path.dirname(__file__)
 
 if platform.architecture()[0] == '64bit':

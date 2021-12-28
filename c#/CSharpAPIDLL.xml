@@ -1831,6 +1831,12 @@
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.Functions_CheckAMCinRack">
+            <summary>
+            If AMC is on Rack position 0, use it as DHCP server, else use it as DHCP client
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
         <member name="M:Attocube.IDS.AttocubeIDS.GetDeviceName">
             <summary>
             Get the actual device name

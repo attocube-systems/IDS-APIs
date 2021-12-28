@@ -5,6 +5,10 @@ from dateutil import parser
 from .dll_wrapper import _DecodePackets
 from .stream import Stream
 
+############
+### BETA ###
+############
+
 def parse(file):
     headerSize, headerParams = parseHeader(file)
     # reset to start of data buffer:
