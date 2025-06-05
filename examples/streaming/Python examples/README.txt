@@ -10,9 +10,9 @@ The Python wrapper contains modules to call and use functions from the SEN.Strea
 Here's what to know when using SEN.Stream.dll through the python api wrapper
 
 Main modules:
-IDS.stream - the IDS.stream python module provides the interface to the core streaming functions of the SEN.Streaming.dll. It loads the DLL, sets up correct function signatures, wraps and exposes the C functions as simpler Python-callable methods.
+SEN.stream - the SEN.stream python module provides the interface to the core streaming functions of the SEN.Streaming.dll. It loads the DLL, sets up correct function signatures, wraps and exposes the C functions as simpler Python-callable methods.
 
-	available methods in the IDS.stream module: 
+	available methods in the SEN.stream module: 
 
 		open:  Open Stream connection to device
 		close: Close stream and stop recording if necessary
@@ -28,10 +28,10 @@ IDS.stream - the IDS.stream python module provides the interface to the core str
 		>> Stream("192.168.1.1", true, 10, axis0=true, axis1=true, axis2=true) 
 
 
-IDS.streaming - using python's multiprocessiong module, the IDS.streaming module contains functions that allows you to stream and record stream in the background generating the binary .aws stream file that can be exported to csv using the 
+SEN.streaming - using python's multiprocessiong module, the SEN.streaming module contains functions that allows you to stream and record stream in the background generating the binary .aws stream file that can be exported to csv using the 
 WaveExport or decoded & loaded into the code for further use through the streaming.loadFile() function.
 
-	available methods in the IDS.streaming module:
+	available methods in the SEN.streaming module:
 		open: Open Stream connection to device
 		loadFile: Load decoded content of recorded stream file
 		startBackgroundStreaming: Starts position streaming to file in background

@@ -3,12 +3,12 @@
 #include <stdint.h>
 #include <ctype.h>
 #include <stdbool.h>
-#include "IDS.NativeC.h"
+#include "SEN.NativeC.h"
 
 /*H**********************************************************************
 *
 * DESCRIPTION :
-*       This is an exemplary implementation of the C API for the IDS streaming feature.
+*       This is an exemplary implementation of the C API for the SEN streaming feature.
 *       The program streams and decodes 1023 position values with a streaming rate of 100 kHz from axis 1, 2 and 3.
 *       Note that error buffers should contain values of 0s or 1s after successful decoding. Error flag 1 indicates that error detected on 
 *       the corresponding position value whereas 0 indicates no error detected.

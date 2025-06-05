@@ -1,7 +1,7 @@
 ﻿/*H**********************************************************************
 *
 * DESCRIPTION :       
-*       This is an exemplary implementation of the C# API Wrapper for the IDS streaming feature.
+*       This is an exemplary implementation of the C# API Wrapper for the SEN streaming feature.
 *       The program uses the SEN.StreamDLLWrapper which interact with the SEN.Stream native C library to       
 *        stream and decode atleast 5000 position values with a streaming rate of 100 kHz from axis 1, 2 and 3.
 *       Note that error buffers should contain values of 0s or 1s after successful decoding. Error flag 1 indicates that error detected on 
@@ -15,13 +15,13 @@
 using SEN.StreamDLLWrapper;
 
 //use unsafe to allow pointers and memory manipulation
-static unsafe void streamIds()
+static unsafe void streamSen()
 
 {
     var api = new StreamDLLWrapper();
 
     int samplesToReceive = 5000;
-    int sampleBufferSize = (samplesToReceive + 1024); //must be enough to hold atleast 1023 samples(minimum samples contained in a single IDS frame)
+    int sampleBufferSize = (samplesToReceive + 1024); //must be enough to hold atleast 1023 samples(minimum samples contained in a single SEN frame)
 
     byte[] buffer = new byte[60 * 1024];
     int bufferSize = buffer.Length;
@@ -62,4 +62,4 @@ static unsafe void streamIds()
     
 }
 
-streamIds();
+streamSen();

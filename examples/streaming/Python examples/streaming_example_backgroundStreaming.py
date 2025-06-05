@@ -2,7 +2,7 @@
 # attocube systems GmbH 2025
 # 
 # Script Overview:
-# This script connects to an IDS device via IP, initializes it (if necessary), 
+# This script connects to a SEN device via IP, initializes it (if necessary), 
 # and records background streaming data for all three axes over 5 seconds. 
 # The data is saved to a .aws file, then loaded and visualized using Plotly. 
 # The script converts position data from picometers to nanometers and plots it 
@@ -16,40 +16,40 @@ import numpy as np
 import sys
 import os
 folder_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
-sys.path.append(folder_path) #append containing folder to be able to import IDS
-import IDS
+sys.path.append(folder_path) #append containing folder to be able to import SEN
+import SEN
 import pandas as pd
 import plotly.graph_objects as go
 
 def main():
     filename = 'Testing' # name of the .aws file created
     
-    ids = IDS.Device('192.168.1.1') #IP of IDS
-    ids.connect()
-    deviceType = ids.system.getDeviceType()
+    sen = SEN.Device('192.168.1.1') #IP of device
+    sen.connect()
+    deviceType = sen.system.getDeviceType()
 
     
-    if ids.displacement.getMeasurementEnabled() is False:
+    if sen.displacement.getMeasurementEnabled() is False:
 
         print("starting Init")
-        ids.system.setInitMode(0) # enable high accuracy mode
-        ids.system.startMeasurement()
+        sen.system.setInitMode(0) # enable high accuracy mode
+        sen.system.startMeasurement()
         
         print("init",end="")
-        while not ids.displacement.getMeasurementEnabled():
+        while not sen.displacement.getMeasurementEnabled():
             print(".",end="")
             sleep(5)
         print("")
 
-    ids.streaming.startBackgroundStreaming(isMaster=True, intervalInMicroseconds=20, bufferSize=2<<3, filePath=filename+'.aws', axis0=True, axis1=True, axis2=True)
+    sen.streaming.startBackgroundStreaming(isMaster=True, intervalInMicroseconds=20, bufferSize=2<<3, filePath=filename+'.aws', axis0=True, axis1=True, axis2=True)
 
     print('Started Backgroundstreaming')
     sleep(5) # time to record
     print('Stop Backgroundstreaming')
-    ids.streaming.stopBackgroundStreaming()
+    sen.streaming.stopBackgroundStreaming()
 
     #evalute Data
-    ttime,axis0,axis1,axis2,error0,error1,error2 = zip(*ids.streaming.loadFile(filename+".aws")) #load file
+    ttime,axis0,axis1,axis2,error0,error1,error2 = zip(*sen.streaming.loadFile(filename+".aws")) #load file
     
     #create dataframe
     data = pd.DataFrame()

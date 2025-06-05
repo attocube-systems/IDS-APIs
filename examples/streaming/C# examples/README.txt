@@ -1,6 +1,6 @@
 C# API WRAPPER - SEN.StreamDLLWrapper.dll
  
-The C# API wrapper provides a managed interface to access and invoke the functions exposed by the IDS streaming C DLL(SEN.Stream.dll) in a C# application. 
+The C# API wrapper provides a managed interface to access and invoke the functions exposed by the SEN streaming C DLL(SEN.Stream.dll) in a C# application. 
 It uses P/Invoke (Platform Invocation Services) to call the unmanaged C functions, enabling seamless integration between C and C# code, while handling data type conversions and memory management. This wrapper simplifies calling C library methods from C# and ensures compatibility with .NET applications.
 
 

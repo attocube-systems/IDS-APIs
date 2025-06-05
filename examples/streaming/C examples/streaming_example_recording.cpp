@@ -5,13 +5,13 @@
 #include <stdbool.h>
 #include <inttypes.h>
 //#include <unistd.h>
-#include "IDS.NativeC.h"
+#include "SEN.NativeC.h"
 #include <corecrt_memcpy_s.h>
 
 /*H**********************************************************************
 *
 * DESCRIPTION :
-*       This is an exemplary implementation of the C API for the IDS streaming feature.
+*       This is an exemplary implementation of the C API for the SEN streaming feature.
 *       The program loops the data recording until at least 5000 (note that only packages of max. 1023 values are received)samples were streamed and decoded.
 *       The received data is written into a .txt file.
 *       Furthermore the data gets recorded into a .aws file using the StartStreamRecording function.
@@ -30,8 +30,8 @@ int main()
     // the number of samples we want to receive
     const int samplesToReceive = 5000;
 
-    // note: DecodeStream can only decode full IDS frames. therefore trying
-    // to decode less samples than a full frame contains returns 0 samples. IDS frames
+    // note: DecodeStream can only decode full SEN frames. therefore trying
+    // to decode less samples than a full frame contains returns 0 samples. SEN frames
     // hold up to 1023 samples, depending on streaming rate and number of channels.
     // to allow decoding arbitrary "samplesToReceive" number of samples, we simply
     // overallocate the channel buffers by 1022 samples
