@@ -13,13 +13,9 @@
 from time import sleep
 from matplotlib.ticker import ScalarFormatter
 import numpy as np
-import sys
-import os
-folder_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
-sys.path.append(folder_path) #append containing folder to be able to import SEN
-import SEN
+from ... import SEN
 import pandas as pd
-import plotly.graph_objects as go
+import matplotlib.pyplot as plt
 
 def main():
     filename = 'Testing' # name of the .aws file created
@@ -59,22 +55,20 @@ def main():
     data['Time1 in s'] = np.array(ttime)
     data.index = data['Time1 in s']
 
-    # Create the figure
-    fig = go.Figure()
+    # Plot graph
+    fig, ax = plt.subplots()
+    ax.plot(data['Time1 in s'], data['y in nm'], label='y in nm')
 
-    # Add the plot
-    fig.add_trace(go.Scatter(x=data['Time1 in s'], y=data['y in nm'], mode='lines'))
-
-    # Customize the layout (optional)
-    fig.update_layout(
-        title=deviceType,
-        xaxis_title="time(s)",
-        yaxis_title="position(nm)",
-        yaxis=dict(tickformat=",.0f")  # Use thousands separator for better readability
-    )
+    ax.set_title(deviceType)
+    ax.set_xlabel("time(s)")
+    ax.set_ylabel("position(nm)")
+    ax.yaxis.set_major_formatter(ScalarFormatter(useMathText=True))
+    ax.ticklabel_format(style='plain', axis='y')  # Prevent scientific notation
+    ax.grid(True)
+    plt.tight_layout()
 
     # Show the plot
-    fig.show()
+    plt.show()
 
 
 if __name__ == '__main__':
