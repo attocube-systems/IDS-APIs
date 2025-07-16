@@ -8,6 +8,8 @@
 # The script converts position data from picometers to nanometers and plots it 
 # over time with appropriate axis formatting. It provides a quick way to test 
 # streaming functionality and visualize recorded displacement data.
+#
+# Refer to the README.txt on how to run this example
 # ==============================================================================
 
 from time import sleep

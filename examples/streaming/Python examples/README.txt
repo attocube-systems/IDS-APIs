@@ -37,3 +37,22 @@ WaveExport or decoded & loaded into the code for further use through the streami
 		startBackgroundStreaming: Starts position streaming to file in background
 		stopBackgroundStreaming: Stops the position streaming
 		isRunningBackgroundStreaming: Get state of background position reading
+
+
+Running the background streaming example - Attempting to run Examples/streaming_example_backgroundStreaming.py as a file will throw an error (ImportError: attempted relative import with no known parent package). This is due to the use of relative imports primarily in SEN.py. In order to execute the backgroundStreaming example, the file needs to be called in the terminal as a python module.
+	To do that(Taken that the api is located in the folder '08_Python_Library'): 
+		- run the command "python -m 08_Python_Library.streaming.Examples.streaming_example_backgroundStreaming" instead of "python '08_Python_Library\streaming\Examples\streaming_example_backgroundStreaming.py'" 
+		- In the terminal make sure the command is not run in the api folder itself but one level higher. for example: sif the api folder '08_Python_Library' is located on "C:\Users\user\Desktop\08_Python_Library>", go one level higher like "C:\Users\user\Desktop>"
+
+finally execute the example like this - C:\Users\user\Desktop> python -m 08_Python_Library.streaming.Examples.streaming_example_backgroundStreaming
+
+
+If you by any means want to execute the example as a file instead of python module, then you must change the relative imports in the SEN.py and Examples\streaming_example_backgroundStreaming.py to absolute imports.
+e.g changing relative to absolute:
+	'from . import ACS' -> 'import ACS'
+	'from .network import Network' -> 'from network import Network'
+	'from ... import SEN' -> 'import SEN' (in the example file)
+
+Note: Pay attention to the respective paths of the modules being imported. In the example file you may need to append the parent folder path to system path.
+	api_folder_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+	sys.path.append(api_folder_path)
