@@ -66,23 +66,34 @@ def decodeFile(file, headerParams):
             (ctypes.c_int64 * (headerParams["perPacketSampleCount"] * PACKET_BUFFER_LEN))(),
             (ctypes.c_int64 * (headerParams["perPacketSampleCount"] * PACKET_BUFFER_LEN))()
         ]
+        #error flags are decoded into these buffers
+        _axisErr = [
+            (ctypes.c_uint8 * (headerParams["perPacketSampleCount"] * PACKET_BUFFER_LEN))(),
+            (ctypes.c_uint8 * (headerParams["perPacketSampleCount"] * PACKET_BUFFER_LEN))(),
+            (ctypes.c_uint8 * (headerParams["perPacketSampleCount"] * PACKET_BUFFER_LEN))()
+        ]
         _dest = (ctypes.POINTER(ctypes.c_int64)*3)(*[ctypes.cast(ax, ctypes.POINTER(ctypes.c_int64)) for ax in _axis])
+        _dstErr = (ctypes.POINTER(ctypes.c_uint8)*3)(*[ctypes.cast(ex, ctypes.POINTER(ctypes.c_uint8)) for ex in _axisErr])  
 
         _DecodePackets(_buffer,
                        ctypes.c_int(packetCount),
                        ctypes.c_int(headerParams["perPacketSampleCount"]),
                        ctypes.c_int(len(headerParams["channelIds"])),
                        _offsets,
-                       _dest)
+                       *_dest,
+                       *_dstErr
+                       )
 
         sampleCountInBuffer = packetCount * headerParams["perPacketSampleCount"]
         srcFreq = headerParams["frequency"]
         for j in range(sampleCountInBuffer):
             time = sourceSamplePos / srcFreq
             elem = [time, None, None, None]
+            err = [None, None, None]
             for i_src, i_dst in enumerate(headerParams["channelIds"]):
                 elem[i_dst+1] = _axis[i_src][j] - int(headerParams["channels"][i_src+1]["offs"])
-
+                err[i_dst] = _axisErr[i_src][j] - int(headerParams["channels"][i_src+1]["offs"])
+            elem.extend(err)
             result.append(tuple(elem))
             sourceSamplePos += 1
 
@@ -97,15 +108,20 @@ def fileWriter(deviceAddress,
                axis1,
                axis2,
                barrier=None,
-               stopped=None):
-    with Stream(deviceAddress,
-                isMaster,
-                intervalInMicroseconds,
-                filePath,
-                axis0,
-                axis1,
-                axis2) as stream:
-        if barrier is not None:
-            barrier.wait()
-        while (not stopped.value if stopped is not None else True):
-            _ = stream.readRaw(bufferSize)
+               stopped=None,
+               barrier_timeout = 10):
+    try:
+        with Stream(deviceAddress,
+                    isMaster,
+                    intervalInMicroseconds,
+                    filePath,
+                    axis0,
+                    axis1,
+                    axis2) as stream:
+            
+            if barrier is not None:
+                barrier.wait(timeout = barrier_timeout)
+            while (not stopped.value if stopped is not None else True):
+                _ = stream.readRaw(bufferSize)
+    except Exception as e: 
+        print(e)

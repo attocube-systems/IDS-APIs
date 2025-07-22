@@ -3,25 +3,20 @@ import ctypes
 from .dll_wrapper import _GetLastStreamError, \
                          _OpenStream, \
                          _CloseStream, \
-                         _GetPacketSize, \
                          _ReadStream, \
-                         _DecodeStreamSingle, \
+                         _DecodeStream, \
                          _StartStreamRecording, \
                          _StopStreamRecording
-
-############
-### BETA ###
-############
 
 class Stream():
     def __init__(self, deviceAddress, isMaster, intervalInMicroseconds, filePath=None, axis0=False, axis1=False, axis2=False):
         """
-        Stream class handling the connection between IDS and Python
+        Stream class handling the connection between SEN and Python
 
         Parameters
         ----------
         deviceAddress : str
-            IP address of IDS
+            IP address of SEN
         isMaster : bool
             Master
         intervalInMicroseconds : int
@@ -87,7 +82,7 @@ class Stream():
             if self.filePath is not None:
                 self.startRecording(self.filePath)
             return
-        raise Exception("Cannot connect to IDS streaming. Maybe, the measurement is not running on all requested axes or Streaming is not running on your IDS.")
+        raise Exception("Cannot connect to SEN streaming. Maybe, the measurement is not running on all requested axes or Streaming is not running on your SEN.")
 
     def close(self):
         """
@@ -146,17 +141,23 @@ class Stream():
         axis0 = (ctypes.c_int64 * len(buffer))()
         axis1 = (ctypes.c_int64 * len(buffer))()
         axis2 = (ctypes.c_int64 * len(buffer))()
+        err0 = (ctypes.c_uint8 * len(buffer))()
+        err1 = (ctypes.c_uint8 * len(buffer))()
+        err2 = (ctypes.c_uint8 * len(buffer))()
         decodedSampleCount = (ctypes.c_int * 1)()
 
-        decodedBytes = _DecodeStreamSingle(ctypes.c_void_p(self.handle),
-                                          (ctypes.c_uint8 * len(buffer))(*buffer),
-                                          ctypes.c_int(len(buffer)),
-                                          axis0,
-                                          axis1,
-                                          axis2,
-                                          ctypes.c_int(ctypes.sizeof(axis0)*3),
-                                          decodedSampleCount)
-
+        decodedBytes = _DecodeStream(ctypes.c_void_p(self.handle),
+                                    (ctypes.c_uint8 * len(buffer))(*buffer),
+                                    ctypes.c_int(len(buffer)),
+                                    axis0,
+                                    axis1,
+                                    axis2,
+                                    err0,
+                                    err1,
+                                    err2,
+                                    ctypes.c_int(ctypes.sizeof(axis0)*3),
+                                    decodedSampleCount)
+        
         decodedSamples = decodedSampleCount[0]
         if decodedSamples == 0:
             print("No samples received.")
@@ -168,18 +169,26 @@ class Stream():
         axis0 = axis0[:decodedSamples]
         axis1 = axis1[:decodedSamples]
         axis2 = axis2[:decodedSamples]
-
+        err0 = err0[:decodedSamples]
+        err1 = err1[:decodedSamples]
+        err2 = err2[:decodedSamples]
         if self.channelMask & 1 == 0:
             axis2 = axis1
             axis1 = axis0
             axis0 = []
+            err2 = err1
+            err1 = err0
+            err0 = []
         if self.channelMask & 2 == 0:
             axis2 = axis1
-            axis1 = []
+            axis1 = []  
+            err2 = err1
+            err1 = []
         if self.channelMask & 4 == 0:
             axis2 = []
+            err2 = []
 
-        return decodedBytes, axis0, axis1, axis2
+        return decodedBytes, axis0, axis1, axis2, err0, err1, err2
 
     def read(self, bufferSize):
         """
@@ -201,12 +210,12 @@ class Stream():
         axis2 : list
             List containing positions of axis 2 in pm
         """
-        _packetSize = _GetPacketSize(ctypes.c_void_p(self.handle))
-        if _packetSize <= 0:
-            raise Exception("Stream is not opened")
+        # _packetSize = _GetPacketSize(ctypes.c_void_p(self.handle))
+        # if _packetSize <= 0:
+        #     raise Exception("Stream is not opened")
 
-        # For direct decoding, appropriate buffer sizes are necessary!
-        bufferSize = (bufferSize // _packetSize) * _packetSize
+        # # For direct decoding, appropriate buffer sizes are necessary!
+        # bufferSize = (bufferSize // _packetSize) * _packetSize
 
         buffer = self.readRaw(bufferSize)
         return self.decodeBuffer(buffer)

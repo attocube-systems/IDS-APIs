@@ -9,10 +9,6 @@ from .stream import Stream
 
 from time import sleep
 
-############
-### BETA ###
-############
-
 class Streaming():
     def __init__(self, device):
         self.device = device
@@ -69,7 +65,7 @@ class Streaming():
         with open(filePath, "rb") as file:
             return parse(file)
 
-    def startBackgroundStreaming(self, isMaster, intervalInMicroseconds, filePath, bufferSize=2<<20, axis0=False, axis1=False, axis2=False):
+    def startBackgroundStreaming(self, isMaster, intervalInMicroseconds, filePath, bufferSize=2<<20, axis0=False, axis1=False, axis2=False, barrier_timeout = 10):
         """
         Starts concurrent and permanent position streaming to file in background.
         Programm must run in a main function:
@@ -113,12 +109,12 @@ class Streaming():
                                                                 axis1,
                                                                 axis2,
                                                                 barrier,
-                                                                stopped))
+                                                                stopped,barrier_timeout))
         self.background_process.daemon = True
         self.background_process.stopped = stopped
         self.background_process.start()
 
-        barrier.wait()
+        barrier.wait(timeout = barrier_timeout)
         sleep(0.1)
         return
 

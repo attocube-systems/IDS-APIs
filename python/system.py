@@ -1,243 +1,210 @@
-    
-class System():
-
+class System:
     def __init__(self, device):
         self.device = device
-        self.interface_name = "com.attocube.ids.system"
-            
-    def getCurrentMode(self):
-        """
-        Reads out the current IDS system state.
+        self.interface_name = "com.attocube.sen.system"
 
-        Parameters
-        ----------
-
-        Returns
-        -------
-        mode: mode Values: "system idle", "measurement starting", "measurement running", "optics alignment starting", "optics alignment running", "test channels enabled"
+    def stopMeasurement(self):
+        # type: () -> ()
         """
-        response = self.device.request(self.interface_name + "." + "getCurrentMode")
+        Stops the measurement system state.
+        """
+        
+        response = self.device.request(self.interface_name + ".stopMeasurement")
         self.device.handleError(response)
-        return response['result'][1]
+        return                 
 
-    def getDeviceType(self):
+    def startMeasurement(self):
+        # type: () -> ()
         """
-        Reads out the IDS device type. For differences between the device types please refer to the IDS User Manual.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        type: type Type of IDS (e.g. "IDS3010")
+        Starts the measurement system state./nThis function is only available in the "system idle" state (please refer to the getCurrentMode function)
         """
-        response = self.device.request(self.interface_name + "." + "getDeviceType")
+        
+        response = self.device.request(self.interface_name + ".startMeasurement")
         self.device.handleError(response)
-        return response['result'][1]
+        return                 
 
-    def getFeaturesName(self, featurenumber):
+    def restartMeasurement(self):
+        # type: () -> ()
         """
-        Converts the IDS feature number to its corresponding name.
-
-        Parameters
-        ----------
-        featurenumber:  Number of feature
-
-        Returns
-        -------
-        names: names The name of the corresponding feature
+        Restarts the absolute measurement system state./nThis function is only available in the "measurement running" state (please refer to the getCurrentMode function).
         """
-        response = self.device.request(self.interface_name + "." + "getFeaturesName", [featurenumber])
+        
+        response = self.device.request(self.interface_name + ".restartMeasurement")
         self.device.handleError(response)
-        return response['result'][1]
+        return                 
 
-    def getFpgaVersion(self):
+    def startOpticsAlignment(self):
+        # type: () -> ()
         """
-        Reads out the IDS FPGA version.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        version: version Version in the form X.Y.Z
+        Starts the optical alignment system state./nThis function is only available in the "system idle" state (please refer to the getCurrentMode function).
         """
-        response = self.device.request(self.interface_name + "." + "getFpgaVersion")
+        
+        response = self.device.request(self.interface_name + ".startOpticsAlignment")
         self.device.handleError(response)
-        return response['result'][1]
+        return                 
 
-    def getInitMode(self):
+    def stopOpticsAlignment(self):
+        # type: () -> ()
         """
-        Returns the Initialization mode.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        mode: mode 0 = High Accuracy Initialization; 1 = Quick Initialization
+        Stops the optical alignment system state./nThis function is only available in the "optics alignment running" state (please refer to the getCurrentMode function).
         """
-        response = self.device.request(self.interface_name + "." + "getInitMode")
+        
+        response = self.device.request(self.interface_name + ".stopOpticsAlignment")
         self.device.handleError(response)
-        return response['result'][1]
-
-    def getNbrFeaturesActivated(self):
-        """
-        Reads out the amount of activated features activated on the IDS.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        nbr: nbr Gives the number of activated features.
-        """
-        response = self.device.request(self.interface_name + "." + "getNbrFeaturesActivated")
-        self.device.handleError(response)
-        return response['result'][1]
-
-    def getSystemError(self):
-        """
-        Reads out the system error. The function returns an integer number which represents 
-           the error. The number can be converted into a string using the errorNumberToString 
-           function.
-           Use this function to query errors occured while starting and running measurements and alignments.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        """
-        response = self.device.request(self.interface_name + "." + "getSystemError")
-        self.device.handleError(response)
-        return 
+        return                 
 
     def resetAxes(self):
+        # type: () -> ()
         """
-        Resets the position value of all measurement axes to zero.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
+        Resets the displacement value of all measurement axes to zero.
         """
-        response = self.device.request(self.interface_name + "." + "resetAxes")
+        
+        response = self.device.request(self.interface_name + ".resetAxes")
         self.device.handleError(response)
-        return 
+        return                 
 
     def resetAxis(self, axis):
+        # type: (int) -> ()
         """
-        Resets the position value of a specific measurement axis to zero.
+        Resets the displacement value of a specific measurement axis to zero.
 
-        Parameters
-        ----------
-        axis:  [0|1|2]
-
-        Returns
-        -------
+        Parameters:
+            axis: [0|1|2]
+                    
         """
-        response = self.device.request(self.interface_name + "." + "resetAxis", [axis])
+        
+        response = self.device.request(self.interface_name + ".resetAxis", [axis, ])
         self.device.handleError(response)
-        return 
+        return                 
 
-    def resetError(self, perform):
-      """
-        Resets a measurement error that can have occurred with the aim to continue the interrupted measurement. It is configurable if an additional renormalization process (please refer to the IDS User Manual) should be performed or not.
-           
-           This function can be used for two concerns:
-           1.	FALSE: This function only clears displacement errors (e.g. after a beam interruption) of all three axes, while the displacement measurement is running.
-           2.	TRUE: This function can be utilized to normalize the Lissajous-Figure of all three optical axes during the running displacement measurement by sweeping the laser temperature and to clear all displacement errors. This normalization process takes around 14-20 seconds. This function can be used, for example, in two main applications:
-           A.	The alignment contrast decreases due to the angular change of the target and/or sensor head without any displacements (see Figure 45). Using this function, the Lissajous-Figure of each measurement axis gets normalized and high-resolution measurements are guaranteed.
-           B.	After changing the optical components as, for example, the retro reflector this function can be used to normalize the Lissajous-Figure after completely losing the signal (see Figure 46).
-           Attention: Depending on the Boolean input parameter performRenormalisation, it can be decided, if the renormalization process should be executed or skipped. If it is executed, the IDS system needs around 14-20 seconds to get back to the measurement mode. It is also important to comment that the recommended action after an error is to stop and to restart the displacement measurement. Moreover, losing displacement values due to an occurred error the internal absolute position can be different to the real absolute position and this can could result in dynamic movement errors or a wrong ECU compensation during long-term displacement measurements.
+    def resetError(self, performRenormalization):
+        # type: (bool) -> ()
+        """
+        Resets a measurement error that has been raised with the aim to continue the interrupted measurement./nIt is configurable if an additional renormalization process (please refer to the device user manual) should be performed or not./n/n  This function can be used in two cases:/n 	1.
 
-        Parameters
-        ----------
-        perform:  renormalization
+        Parameters:
+            performRenormalization: true = enable; false = disable
+                    
+        """
+        try:
+            self.device.tcp.settimeout(20.0)
+        
+            response = self.device.request(self.interface_name + ".resetError", [performRenormalization, ])
+            self.device.handleError(response)
+            return                 
+        finally:
+            self.device.tcp.settimeout(10)
+        
 
-        Returns
-        -------
-      """
-      try:
-        self.device.tcp.settimeout(20.0)
-        response = self.device.request(self.interface_name + "." + "resetError", [perform])
+    def getCurrentMode(self):
+        # type: () -> (str)
+        """
+        Reads out the current device system state.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_mode: mode "system idle", "measurement starting", "measurement running", "measurement restarting",/n"optics alignment starting", "optics alignment running", "test channels enabled"
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getCurrentMode")
         self.device.handleError(response)
-        return 
-      finally:
-        self.device.tcp.settimeout(10)
+        return response[1]                
+
+    def getFpgaVersion(self):
+        # type: () -> (str)
+        """
+        Reads out the device FPGA version.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_version: version version in the form X.Y.Z
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getFpgaVersion")
+        self.device.handleError(response)
+        return response[1]                
+
+    def getDeviceType(self):
+        # type: () -> (str)
+        """
+        Reads out the device type.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_type: type type of the device (e.g. "IDS3010")
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getDeviceType")
+        self.device.handleError(response)
+        return response[1]                
+
+    def getSystemError(self):
+        # type: () -> ()
+        """
+        Reads out the system error.
+        """
+        
+        response = self.device.request(self.interface_name + ".getSystemError")
+        self.device.handleError(response)
+        return                 
+
+    def getNbrFeaturesActivated(self):
+        # type: () -> (int)
+        """
+        Reads out the number of the activated features on the device.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_nbr: nbr the number of activated features
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getNbrFeaturesActivated")
+        self.device.handleError(response)
+        return response[1]                
+
+    def getFeaturesName(self, featurenumber):
+        # type: (int) -> (str)
+        """
+        Converts the device feature number to its corresponding name.
+
+        Parameters:
+            featurenumber: number of features
+                    
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_names: names name of the corresponding feature
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getFeaturesName", [featurenumber, ])
+        self.device.handleError(response)
+        return response[1]                
+
+    def getInitMode(self):
+        # type: () -> (int)
+        """
+        Returns the initialization mode.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_mode: mode 0 = High Accuracy Initialization; 1 = Quick Initialization (default: 0)
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getInitMode")
+        self.device.handleError(response)
+        return response[1]                
 
     def setInitMode(self, mode):
+        # type: (int) -> ()
         """
         Sets the mode for the initialization procedure that is performed when starting a measurement.
 
-        Parameters
-        ----------
-        mode:  0 = High Accuracy Initialization; 1 = Quick Initialization
-
-        Returns
-        -------
+        Parameters:
+            mode: 0 = High Accuracy Initialization; 1 = Quick Initialization
+                    
         """
-        response = self.device.request(self.interface_name + "." + "setInitMode", [mode])
+        
+        response = self.device.request(self.interface_name + ".setInitMode", [mode, ])
         self.device.handleError(response)
-        return 
-
-    def startMeasurement(self):
-        """
-        Starts the displacement measurement system state.
-            Please query errors during starting and running measurements by system.getSystemError
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        """
-        response = self.device.request(self.interface_name + "." + "startMeasurement")
-        self.device.handleError(response)
-        return 
-
-    def startOpticsAlignment(self):
-        """
-        Starts the optical alignment system state.
-            Please query errors during starting and running alignments by system.getSystemError
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        """
-        response = self.device.request(self.interface_name + "." + "startOpticsAlignment")
-        self.device.handleError(response)
-        return 
-
-    def stopMeasurement(self):
-        """
-        Stops the displacement measurement system state.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        """
-        response = self.device.request(self.interface_name + "." + "stopMeasurement")
-        self.device.handleError(response)
-        return 
-
-    def stopOpticsAlignment(self):
-        """
-        Stops the optical alignment system state.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        """
-        response = self.device.request(self.interface_name + "." + "stopOpticsAlignment")
-        self.device.handleError(response)
-        return 
+        return                 
 

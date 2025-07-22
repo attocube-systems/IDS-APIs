@@ -1,10 +1,11 @@
-function [errNo, value_int1] = system_update_getLicenseUpdateProgress(tcp)
-% brief : Get the progress of running license update
+function [value_errNo, value_progress] = system_update_getLicenseUpdateProgress(tcp)
+% brief : Gets the progress of running license update.
 %
-% param[in] tcp : TCP/IP connection ID
+% param[in] tcp: TCP/IP connection ID
 % param[out]
-%           errNo: errNo errorCode
-%           value_int1: int: progress in percent
+%           value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+%           value_progress: progress value in %
+
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.update.getLicenseUpdateProgress", "params": [], "id": 1, "api": 2}');
 
@@ -12,11 +13,8 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
-value_int1 = data.result (2);
+value_errNo = data.result(1);
+value_progress = data.result(2);
 
 
 end
-
-
-

@@ -16,7 +16,7 @@ else:
     CURRENT_PATH = os.path.join(CURRENT_PATH, "x86")
 
 if os.name == "nt":
-    DLL_PATH = os.path.join(CURRENT_PATH, "Attocube.Common.NativeC.dll")
+    DLL_PATH = os.path.join(CURRENT_PATH, "SEN.stream.dll")
 else:
     raise Exception("Streaming not supported on this platform")
 
@@ -30,14 +30,15 @@ _OpenStream.restype = ctypes.c_void_p
 
 _CloseStream = API.CloseStream
 
-_GetPacketSize = API.GetPacketSize
-_GetPacketSize.restype = ctypes.c_int
+# TODO: expose packet size in dll
+# _GetPacketSize = API.GetPacketSize
+# _GetPacketSize.restype = ctypes.c_int
 
 _ReadStream = API.ReadStream
 _ReadStream.restype = ctypes.c_int
 
-_DecodeStreamSingle = API.DecodeStreamSingle
-_DecodeStreamSingle.restype = ctypes.c_int
+_DecodeStream = API.DecodeStream
+_DecodeStream.restype = ctypes.c_int
 
 _StartStreamRecording = API.StartStreamRecording
 _StartStreamRecording.restype = ctypes.c_bool

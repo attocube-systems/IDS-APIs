@@ -1,50 +1,39 @@
-    
-class Pilotlaser():
-
+class Pilotlaser:
     def __init__(self, device):
         self.device = device
-        self.interface_name = "com.attocube.ids.pilotlaser"
-            
-    def disable(self):
-        """
-        Disables the pilot laser.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        """
-        response = self.device.request(self.interface_name + "." + "disable")
-        self.device.handleError(response)
-        return 
+        self.interface_name = "com.attocube.sen.pilotlaser"
 
     def enable(self):
+        # type: () -> ()
         """
         Enables the pilot laser.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
         """
-        response = self.device.request(self.interface_name + "." + "enable")
+        
+        response = self.device.request(self.interface_name + ".enable")
         self.device.handleError(response)
-        return 
+        return                 
+
+    def disable(self):
+        # type: () -> ()
+        """
+        Disables the pilot laser.
+        """
+        
+        response = self.device.request(self.interface_name + ".disable")
+        self.device.handleError(response)
+        return                 
 
     def getEnabled(self):
+        # type: () -> (bool)
         """
         Reads out whether the pilot laser is enabled or not.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        enable: enable true = enabled; false = disabled
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_enabled: enabled true = enabled; false = disabled
+                    
         """
-        response = self.device.request(self.interface_name + "." + "getEnabled")
+        
+        response = self.device.request(self.interface_name + ".getEnabled")
         self.device.handleError(response)
-        return response['result'][1]
+        return response[1]                
 

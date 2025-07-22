@@ -1,235 +1,200 @@
-    
-class System_service():
-
+class System_service:
     def __init__(self, device):
         self.device = device
         self.interface_name = "com.attocube.system"
-            
-    def apply(self):
-        """
-        Apply temporary system configuration
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        """
-        response = self.device.request(self.interface_name + "." + "apply")
-        self.device.handleError(response)
-        return 
-
-    def errorNumberToRecommendation(self, language, errNbr):
-        """
-        Get a recommendation for the error code
-
-        Parameters
-        ----------
-        language:  integer: Language code
-        errNbr:   interger: Error code to translate
-
-        Returns
-        -------
-        value_string1: string: Error recommendation (currently returning an int = 0 until we have recommendations)
-        """
-        response = self.device.request(self.interface_name + "." + "errorNumberToRecommendation", [language, errNbr])
-        self.device.handleError(response)
-        return response['result'][1]
-
-    def errorNumberToString(self, language, errNbr):
-        """
-        Get a description of an error code
-
-        Parameters
-        ----------
-        language:  integer: Language code 0 for the error name, 1 for a more user friendly error message
-        errNbr:   interger: Error code to translate
-
-        Returns
-        -------
-        value_string1: string: Error description
-        """
-        response = self.device.request(self.interface_name + "." + "errorNumberToString", [language, errNbr])
-        return response['result'][1]
-
-    def factoryReset(self):
-        """
-        Turns on the factory reset flag. To perform the factory reset, a reboot is necessary afterwards. All settings will be set to default and the IDS will be configured as DHCP server.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        """
-        response = self.device.request(self.interface_name + "." + "factoryReset")
-        self.device.handleError(response)
-        return 
-
-    def getDeviceName(self):
-        """
-        Get the actual device name
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        value_string1: string: actual device name
-        """
-        response = self.device.request(self.interface_name + "." + "getDeviceName")
-        self.device.handleError(response)
-        return response['result'][1]
-
-    def getFirmwareVersion(self):
-        """
-        Get the firmware version of the system
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        value_string1: string: The firmware version
-        """
-        response = self.device.request(self.interface_name + "." + "getFirmwareVersion")
-        self.device.handleError(response)
-        return response['result'][1]
-
-    def getFluxCode(self):
-        """
-        Get the flux code of the system
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        value_string1: string: flux code
-        """
-        response = self.device.request(self.interface_name + "." + "getFluxCode")
-        self.device.handleError(response)
-        return response['result'][1]
-
-    def getHostname(self):
-        """
-        Return device hostname
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        available: available
-        """
-        response = self.device.request(self.interface_name + "." + "getHostname")
-        self.device.handleError(response)
-        return response['result'][1]
-
-    def getMacAddress(self):
-        """
-        Get the mac address of the system
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        value_string1: string: Mac address of the system
-        """
-        response = self.device.request(self.interface_name + "." + "getMacAddress")
-        self.device.handleError(response)
-        return response['result'][1]
-
-    def getSerialNumber(self):
-        """
-        Get the serial number of the system
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        value_string1: string: Serial number
-        """
-        response = self.device.request(self.interface_name + "." + "getSerialNumber")
-        self.device.handleError(response)
-        return response['result'][1]
-
-    def rebootSystem(self):
-        """
-        Reboot the system
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        """
-        response = self.device.request(self.interface_name + "." + "rebootSystem")
-        self.device.handleError(response)
-        return 
 
     def setDeviceName(self, name):
+        # type: (str) -> ()
         """
-        Set custom name for the device
+        Sets custom name for the device.
 
-        Parameters
-        ----------
-        name:  string: device name
-
-        Returns
-        -------
+        Parameters:
+            name: device name
+                    
         """
-        response = self.device.request(self.interface_name + "." + "setDeviceName", [name])
+        
+        response = self.device.request(self.interface_name + ".setDeviceName", [name, ])
         self.device.handleError(response)
-        return 
+        return                 
 
-    def setTime(self, day, month, year, hour, minute, second):
+    def getDeviceName(self):
+        # type: () -> (str)
         """
-        Set system time manually
-
-        Parameters
-        ----------
-        day:  integer: Day (1-31)
-        month:  integer: Day (1-12)
-        year:  integer: Day (eg. 2021)
-        hour:  integer: Day (0-23)
-        minute:  integer: Day (0-59)
-        second:  integer: Day (0-59)
-
-        Returns
-        -------
+        Gets the current device name.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_name: name current device name
+                    
         """
-        response = self.device.request(self.interface_name + "." + "setTime", [day, month, year, hour, minute, second])
+        
+        response = self.device.request(self.interface_name + ".getDeviceName")
         self.device.handleError(response)
-        return 
+        return response[1]                
+
+    def rebootSystem(self):
+        # type: () -> ()
+        """
+        Reboots the device.
+        """
+        
+        response = self.device.request(self.interface_name + ".rebootSystem")
+        self.device.handleError(response)
+        return                 
+
+    def factoryReset(self):
+        # type: () -> ()
+        """
+        Turns on the factory reset flag.
+        """
+        
+        response = self.device.request(self.interface_name + ".factoryReset")
+        self.device.handleError(response)
+        return                 
 
     def softReset(self):
+        # type: () -> ()
         """
-        Performs a soft reset (Reset without deleting the network settings). Please reboot the device directly afterwards.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
+        Performs a soft reset (factory reset without deleting the network settings).
         """
-        response = self.device.request(self.interface_name + "." + "softReset")
+        
+        response = self.device.request(self.interface_name + ".softReset")
         self.device.handleError(response)
-        return 
+        return                 
+
+    def errorNumberToString(self, language, errNbr):
+        # type: (int, int) -> (str)
+        """
+        Gets a description of an error code.
+
+        Parameters:
+            language: integer: Language code 0 for the error name, 1 for a more user-friendly error message
+            errNbr: error code to translate
+                    
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_message: message error description
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".errorNumberToString", [language, errNbr, ])
+        self.device.handleError(response)
+        return response[1]                
+
+    def errorNumberToRecommendation(self, language, errNbr):
+        # type: (int, int) -> (str)
+        """
+        Gets a recommendation for the error code.
+
+        Parameters:
+            language: integer: Language code
+            errNbr: error code to translate
+                    
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_string: string: error recommendation (currently returning an int = 0 until we have recommendations)
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".errorNumberToRecommendation", [language, errNbr, ])
+        self.device.handleError(response)
+        return response[1]                
+
+    def getFirmwareVersion(self):
+        # type: () -> (str)
+        """
+        Gets the firmware version of the device.
+        Returns:
+            value_errNo: errNo error code to translate
+            value_FWversion: FWversion firmware version
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getFirmwareVersion")
+        self.device.handleError(response)
+        return response[1]                
+
+    def getHostname(self):
+        # type: () -> (str)
+        """
+        Returns the device hostname.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_name: name hostname
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getHostname")
+        self.device.handleError(response)
+        return response[1]                
+
+    def getMacAddress(self):
+        # type: () -> (str)
+        """
+        Gets the mac address of the device.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_mac: mac mac address
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getMacAddress")
+        self.device.handleError(response)
+        return response[1]                
+
+    def getSerialNumber(self):
+        # type: () -> (str)
+        """
+        Gets the serial number of the device.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_SN: SN serial number
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getSerialNumber")
+        self.device.handleError(response)
+        return response[1]                
+
+    def getFluxCode(self):
+        # type: () -> (str)
+        """
+        Gets the flux code of the system.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_code: code flux code
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getFluxCode")
+        self.device.handleError(response)
+        return response[1]                
 
     def updateTimeFromInternet(self):
+        # type: () -> ()
         """
-        Update system time by querying attocube.com
-
-        Parameters
-        ----------
-
-        Returns
-        -------
+        Updates system time by querying attocube.com.
         """
-        response = self.device.request(self.interface_name + "." + "updateTimeFromInternet")
+        
+        response = self.device.request(self.interface_name + ".updateTimeFromInternet")
         self.device.handleError(response)
-        return 
+        return                 
+
+    def setTime(self, day, month, year, hour, minute, second):
+        # type: (int, int, int, int, int, int) -> ()
+        """
+        Sets system time manually.
+
+        Parameters:
+            day: value from 1 to 31
+            month: value from 1 to 12
+            year: value (e.g. 2021)
+            hour: value from 0 to 23
+            minute: value from 0 to 59
+            second: value from 0 to 59
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".setTime", [day, month, year, hour, minute, second, ])
+        self.device.handleError(response)
+        return                 
 

@@ -487,7 +487,7 @@
             <summary>
             Calls the API with eight return values
             </summary>
-            <returns>Return tuple of seven values, the last value is a tuple again. The tuple can't handle more columns.</returns>
+            <returns>Return tuple of eight values, the last value is a tuple again. The tuple can't handle more columns.</returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
             <exception cref="T:Attocube.API.Error.NotConnectedException">Thrown if the client is not connected</exception>
         </member>
@@ -495,7 +495,23 @@
             <summary>
             Calls the API with nine return values
             </summary>
-            <returns>Return tuple of seven values, the last value is a tuple again. The tuple can't handle more columns.</returns>
+            <returns>Return tuple of nine values, the last value is a tuple again. The tuple can't handle more columns.</returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.API.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.API.AttocubeAPI.API_CallTwelveReturnValues``12(System.Boolean,System.Object[])">
+            <summary>
+            Calls the API with twelve return values
+            </summary>
+            <returns>Return tuple of twelve values, the last value is a tuple again. The tuple can't handle more columns.</returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.API.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.API.AttocubeAPI.API_CallTwentyTwoReturnValues``22(System.Boolean,System.Object[])">
+            <summary>
+            Calls the API with 22 return values
+            </summary>
+            <returns>Return tuple of 22 values, the last value is a tuple again. The tuple can't handle more columns.</returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
             <exception cref="T:Attocube.API.Error.NotConnectedException">Thrown if the client is not connected</exception>
         </member>
@@ -614,6 +630,54 @@
             <typeparam name="T9">Expected type of the return value </typeparam>
             <param name="response">Response of the JSON call to parse</param>
             <returns>The actual value of the call - typically a 7-tuple of "int", "bool" or "string" values. The last value is a tuple of addional values. </returns>
+        </member>
+        <member name="M:Attocube.API.AttocubeAPI.HandleResponse12``12(System.Boolean,Attocube.API.JsonRpc.JsonRpcResponse)">
+            <summary>
+            Method to handle the JSON response
+            </summary>
+            <typeparam name="T1">Expected type of the return value</typeparam>
+            <typeparam name="T2">Expected type of the return value</typeparam>
+            <typeparam name="T3">Expected type of the return value</typeparam>
+            <typeparam name="T4">Expected type of the return value</typeparam>
+            <typeparam name="T5">Expected type of the return value</typeparam>
+            <typeparam name="T6">Expected type of the return value</typeparam>
+            <typeparam name="T7">Expected type of the return value</typeparam>
+            <typeparam name="T8">Expected type of the return value</typeparam>
+            <typeparam name="T9">Expected type of the return value</typeparam>
+            <typeparam name="T10">Expected type of the return value</typeparam>
+            <typeparam name="T11">Expected type of the return value</typeparam>
+            <typeparam name="T12">Expected type of the return value</typeparam>
+            <param name="response">Response of the JSON call to parse</param>
+            <returns>The actual value of the call - typically a tuple of 12 values, with nested tuples for additional values</returns>
+        </member>
+        <member name="M:Attocube.API.AttocubeAPI.HandleResponse22``22(System.Boolean,Attocube.API.JsonRpc.JsonRpcResponse)">
+            <summary>
+            Method to handle the JSON response
+            </summary>
+            <typeparam name="T1">Expected type of the return value</typeparam>
+            <typeparam name="T2">Expected type of the return value</typeparam>
+            <typeparam name="T3">Expected type of the return value</typeparam>
+            <typeparam name="T4">Expected type of the return value</typeparam>
+            <typeparam name="T5">Expected type of the return value</typeparam>
+            <typeparam name="T6">Expected type of the return value</typeparam>
+            <typeparam name="T7">Expected type of the return value</typeparam>
+            <typeparam name="T8">Expected type of the return value</typeparam>
+            <typeparam name="T9">Expected type of the return value</typeparam>
+            <typeparam name="T10">Expected type of the return value</typeparam>
+            <typeparam name="T11">Expected type of the return value</typeparam>
+            <typeparam name="T12">Expected type of the return value</typeparam>
+            <typeparam name="T13">Expected type of the return value</typeparam>
+            <typeparam name="T14">Expected type of the return value</typeparam>
+            <typeparam name="T15">Expected type of the return value</typeparam>
+            <typeparam name="T16">Expected type of the return value</typeparam>
+            <typeparam name="T17">Expected type of the return value</typeparam>
+            <typeparam name="T18">Expected type of the return value</typeparam>
+            <typeparam name="T19">Expected type of the return value</typeparam>
+            <typeparam name="T20">Expected type of the return value</typeparam>
+            <typeparam name="T21">Expected type of the return value</typeparam>
+            <typeparam name="T22">Expected type of the return value</typeparam>
+            <param name="response">Response of the JSON call to parse</param>
+            <returns>The actual value of the call - typically a tuple of 22 values, with nested tuples for additional values</returns>
         </member>
         <member name="M:Attocube.API.AttocubeAPI.Check">
             <summary>
@@ -814,1371 +878,1257 @@
             Possible error - if left NULL, then there's no error
             </summary>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Adjustment_GetAdjustmentEnabled">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Adjustment_GetContrastInPermille(System.Int32)">
             <summary>
-            This function can be used to see if the adjustment is running
+            This function can be used to monitor the alignment contrast (peak-to-peak of the basic interference signal amplitude) and the baseline (its offset) during alignment mode.
             </summary>
+            <param name="axis">[0|1|2]</param>
             <returns>
-            enable: enable true = enabled; false = disabled
+              [0] value_contrast: contrast contrast of the base band signal in permille
+              [1] value_baseline: baseline offset of the contrast measurement in permille
+              [2] value_mixcontrast: mixcontrast lower contrast measurement when measuring a mixed contrast (indicated by error code)
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Adjustment_GetContrastInPermille(System.Int32)">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Adjustment_GetAdjustmentEnabled">
             <summary>
-            This function can be used to monitor the alignment contrast (peak-to-peak of the
-            basic interference signal amplitude) and the basline (its offset) during alignment
-            mode. It is used to monitor and optimize the optical alignment such that it allows the
-            successful initialization of a measurement. To monitor the optical contrast during a
-            running measurement, please use the getAxisSignalQuality function.
-            
-            Important: The baseline and contrast needs to be added, otherwise an overload can
-            occure without being recognized. Example: baseline 15permille and contrast 850permille. Just
-            from the contrast it looks good. Adding the baseline the overload is visible.
+            This function can be used to see if the adjustment is running.
             </summary>
-            <param name="axis">Axis to get the value from [0..2]</param>
             <returns>
-            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
-            contast: contast Contrast of the base band signal in permille
-            baseline: baseline Offset of the contrast measurement in permille
-            mixcontrast: mixcontrast lower contrast measurment when measuring a mix contrast (indicated by error code)
+              [0] value_enabled: enabled true = enabled; false = disabled
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Axis_Apply">
-            <summary>
-            Applies new axis settings. Necessary after JSON set commands.
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Axis_Discard">
-            <summary>
-            Discards new axis settings. Necessary after JSON set commands instead of apply() in case of failure.
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Axis_GetMasterAxis">
-            <summary>
-            Returns the master axis (for more information please refer to the IDS User Manual).
-            ADD MORE INFO
-            </summary>
-            <returns>
-            masteraxis: masteraxis Axis which is operating as masteraxis [0..2]
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Axis_GetPassMode">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Axis_GetPassMode">
             <summary>
             Reads out the current pass mode.
             </summary>
             <returns>
-            mode: mode 0 = single; pass 1 = dual pass
+              [0] value_mode: mode 0 = single; pass 1 = dual pass
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Axis_SetMasterAxis(System.Int32)">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Axis_SetPassMode(System.Int32)">
             <summary>
-            Sets the master axis (for more information please refer to the IDS User Manual).
-            </summary>
-            <param name="axis">Axis which is operating as masteraxis [0..2]</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Axis_SetPassMode(System.Int32)">
-            <summary>
-            Sets the desired pass mode. Effectively this mode defines, if the correction factor of two (necessary for measurements in optical dual pass configuration) is applied.
+            Sets the desired pass mode.
             </summary>
             <param name="mode">0 = single pass; 1 = dual pass</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Displacement_GetAbsolutePosition(System.Int32)">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Axis_GetMasterAxis">
             <summary>
-            The absolute position information is estimated at the measurement initialization procedure.
-            This initial absolute position information is not updated during system
-            operation, whereas the IDS continuously measures the relative displacement from
-            that point. This function outputs the sum of the static absolute position register value
-            and the continuously updated displacement register value for a single axis.
+            Returns the master axis (for more information, please refer to the device user manual).
+            </summary>
+            <returns>
+              [0] value_axis: axis [0|1|2]
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Axis_SetMasterAxis(System.Int32)">
+            <summary>
+            Sets the master axis (for more information, please refer to the device user manual).
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Axis_Apply">
+            <summary>
+            Applies new axis settings.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Axis_SetAutoMasterAxis(System.Boolean)">
+            <summary>
+            Enables the automatic configuration of the master axis during measurement initialization.
+            </summary>
+            <param name="automatic">true = automatic; false = manual</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Axis_GetAutoMasterAxis">
+            <summary>
+            Gets status of the automatic configuration of the master axis.
+            </summary>
+            <returns>
+              [0] value_automatic: automatic true = automatic; false = manual (default: true)
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Axis_Discard">
+            <summary>
+            Discards new axis settings.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Displacement_GetMeasurementEnabled">
+            <summary>
+            This function can be used to see if the measurement is running.
+            </summary>
+            <returns>
+              [0] value_enabled: enabled true = enabled; false = disabled
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Displacement_GetAverageN">
+            <summary>
+            Reads out the averaging (lowpass) parameter N.
+            </summary>
+            <returns>
+              [0] value_averageN: averageN value from 0 to 24
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Displacement_SetAverageN(System.Int32)">
+            <summary>
+            Sets the averaging (lowpass) parameter N.
+            </summary>
+            <param name="averageN">value from 0 to 24</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Displacement_GetAxisSignalQuality(System.Int32)">
+            <summary>
+            This function can be used to monitor the signal contrast (peak-to-peak of the basic interference signal amplitude) and the baseline (its offset) during a running measurement.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
-            position: position position of the axis in pm
+              [0] value_contrast: contrast contrast of the base band signal in permille
+              [1] value_baseline: baseline offset of the contrast measurement in permille
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Displacement_GetAbsolutePositions">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Displacement_GetReferencePosition(System.Int32)">
             <summary>
-            The absolute position information is estimated at the measurement initialization
-            procedure. This initial absolute position information is not updated during system
-            operation, whereas the IDS continuously measures the relative displacement from
-            that point. This function outputs the sum of the static absolute position register value
-            and the continuously updated displacement register value for all three axes.
+            Reads out the reference position value of the specific measurement axis./nThe reference position information is estimated at the measurement initialization procedure or on reset position.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+              [0] value_position: position reference position of the axis in pm
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Displacement_GetReferencePositions">
+            <summary>
+            Reads out the reference position value of all three measurement axes.
             </summary>
             <returns>
-            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
-            position0: position0 position of the axis 0 in pm
-            position1: position1 position of the axis 1 in pm
-            position2: position2 position of the axis 2 in pm
+              [0] value_position1: position0 reference position of the axis 0 in pm
+              [1] value_position2: position1 reference position of the axis 1 in pm
+              [2] value_position3: position2 reference position of the axis 2 in pm
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Displacement_GetAverageN">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Displacement_GetAbsolutePosition(System.Int32)">
             <summary>
-            Reads-out the averaging (lowpass) parameter N. The averaging time is calculated by
-            (2^N)*40ns, where N is the averaging value. Please refere to the manual for a table with stopband and 3dB cut-off frequency.
+            This function outputs the sum of the static absolute position register value and the continuously updated displacement register value for a specific measurement axis.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+              [0] value_position: position absolute position of the axis in pm
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Displacement_GetAbsolutePositions">
+            <summary>
+            This function outputs the sum of the static absolute position register value and the continuously updated displacement register value for all three measurement axes.
             </summary>
             <returns>
-            averageN: averageN A value from 0 to 24
+              [0] value_position1: position0 absolute position of the axis 0 in pm
+              [1] value_position2: position1 absolute position of the axis 1 in pm
+              [2] value_position3: position2 absolute position of the axis 2 in pm
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Displacement_GetAxesDisplacement">
-            <summary>
-            Reads out the displacement values of all three measurement axes.
-            </summary>
-            <returns>
-            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
-            displacement0: displacement0 displacement of the axis 0 in pm
-            displacement1: displacement1 displacement of the axis 1 in pm
-            displacement2: displacement2 displacement of the axis 2 in pm
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Displacement_GetAxisDisplacement(System.Int32)">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Displacement_GetAxisDisplacement(System.Int32)">
             <summary>
             Reads out the displacement value of a specific measurement axis.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
-            displacement: displacement Displacement of the axis in pm
+              [0] value_displacement: displacement displacement of the axis in pm
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Displacement_GetAxisSignalQuality(System.Int32)">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Displacement_GetAxesDisplacement">
             <summary>
-            This function can be used to monitor the alignment contrast (peak-to-peak of the basic
-            interference signal amplitude) and the basline (its offset) during a running
-            measurement. Please note that the getAxisSignalQuality function output is only
-            updated when a displacement is measured. This means that angular misalignments
-            without displacement changes on the measurement axes cannot be detected.
-            Furthermore, we recommend using the IDS high accuracy initialization to obtain
-            correct values directly after measurement initialization. When using the quick
-            initialization, the initial value might be falsified at first, but correct after some detected
-            measurement (because it is updated with the correct value then).
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <returns>
-            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
-            contrast: contrast Contrast of the base band signal in â€°
-            baseline: baseline Offset of the contrast measurement in â€°
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Displacement_GetMeasurementEnabled">
-            <summary>
-            This function can be used to see if the measurement is running
+            Reads out the displacement values of all three measurement axes.
             </summary>
             <returns>
-            enable: enable true = enabled; false = disabled
+              [0] value_displacement1: displacement0 displacement of the axis 0 in pm
+              [1] value_displacement2: displacement1 displacement of the axis 1 in pm
+              [2] value_displacement3: displacement2 displacement of the axis 2 in pm
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Displacement_GetReferencePosition(System.Int32)">
-            <summary>
-            The reference position information is estimated at the measurement initialization procedure or on reset.
-            This initial absolute position information is not updated during system
-            operation, whereas the IDS continuously measures the relative displacement from
-            that point.
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <returns>
-            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
-            position: position reference position of the axis in pm
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Displacement_GetReferencePositions">
-            <summary>
-            The reference position information is estimated at the measurement initialization procedure or on reset.
-            This initial absolute position information is not updated during system
-            operation, whereas the IDS continuously measures the relative displacement from
-            that point.
-            </summary>
-            <returns>
-            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
-            position0: position0 position of the axis 0 in pm
-            position1: position1 position of the axis 1 in pm
-            position2: position2 position of the axis 2 in pm
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Displacement_GetSignalQuality(System.Int32)">
-            <summary>
-            This function can be used to monitor the alignment contrast (peak-to-peak of the basic
-            interference signal amplitude) and the basline (its offset) during a running
-            measurement. Please note that the getAxisSignalQuality function output is only
-            updated when a displacement is measured. This means that angular misalignments
-            without displacement changes on the measurement axes cannot be detected.
-            Furthermore, we recommend using the IDS high accuracy initialization to obtain
-            correct values directly after measurement initialization. When using the quick
-            initialization, the initial value might be falsified at first, but correct after some detected
-            measurement (because it is updated with the correct value then).
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <returns>
-            warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
-            contrast: contrast Contrast of the base band signal in â€°
-            baseline: baseline Offset of the contrast measurement in â€°
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Displacement_LinProc(System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Important note: This function is not actively supported anymore. With IDS firmware 1.7.0, a new set of functions corresponding to the linearization procedure was introduced and effectively outdated this function.
-            
-            Starts linearization procedure (additional IDS feature).
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <param name="fringesnbr">Number of fringes to be acquired</param>
-            <param name="samplesperfringe">Number of samples per fringe</param>
-            <param name="set">0 = evaluate current nonlinear amplitude1 = perform linearization and upload look up table2 = Clear look up table3 = Perform only calculation of Phi file</param>
-            <returns>
-            lintable: lintable String, which contains all 512 phase related correction values
-            nonlinearamp: nonlinearamp String which contains the residual positive and negative maximal nonlinear amplitude
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Displacement_SetAverageN(System.Int32)">
-            <summary>
-            Sets the averaging (lowpass) parameter N. The averaging time is calculated by
-            (2^N)*40ns, where N is the averaging value. Please refere to the manual for a table with stopband and 3dB cut-off frequency.
-            </summary>
-            <param name="value">AverageN value from 0 to 24</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Ecu_Disable">
-            <summary>
-            Disables the ECU interface.
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Ecu_Enable">
-            <summary>
-            Enables the ECU interface.
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Ecu_GetConnected">
-            <summary>
-            Reads out whether the ECU interface is physically connected or not. Checking if the ECU is connected can only be done on an enabled ECU interface.
-            </summary>
-            <returns>
-            connected: booleantrue if connected, false if not
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Ecu_GetEnabled">
-            <summary>
-            Reads out whether the ECU interface is enabled or not. Enabling the ECU interface is crucial for working with the ECU.
-            </summary>
-            <returns>
-            enabled: booleantrue if enabled, false if not
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Ecu_GetHumidityInPercent">
-            <summary>
-            Reads out the ECU measured air humidity in percent.
-            </summary>
-            <returns>
-            humidity: doublehumidity in %
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Ecu_GetPressureInHPa">
-            <summary>
-            Reads out the ECU measured air pressure in hPa.
-            </summary>
-            <returns>
-            pressure: doublepressure in hPa
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Ecu_GetRefractiveIndex">
-            <summary>
-            Reads out the ECU estimated refractive index for the current
-            ECU readings. To get the refractive index for other modes, please see
-            getRefractiveIndexForCompensation.
-            </summary>
-            <returns>
-            rIndex: doublerefractive index
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Ecu_GetRefractiveIndexCompensationMode(System.Int32)">
-            <summary>
-            Reads out the compensation mode (see below) which is currently used for the environmental compensation.
-            </summary>
-            <param name="axis">Axis to get the mode for.Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
-            <returns>
-            mode: int32mode see defintion in set function
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Ecu_GetRefractiveIndexForCompensation(System.Int32)">
-            <summary>
-            Reads out the refractive index used according to the current environmental compensation mode for this axis.
-            </summary>
-            <param name="axis">Axis to get the refractive index for.Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
-            <returns>
-            rIndex: doublerefractive index
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Ecu_GetTemperatureInDegrees">
-            <summary>
-            Reads out the ECU measured air temperature in degrees Celsius.
-            </summary>
-            <returns>
-            temperature: doubletemperature in degrees C
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Ecu_SetRefractiveIndexCompensationMode(System.Int32,System.Int32)">
-            <summary>
-            Sets the refractive index mode.
-            </summary>
-            <param name="axis">Axis to set the mode for.Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
-            <param name="mode">mode can be 0 for direct ECU mode, 1 to take the manual values and calculate the refractive index from this or 2 to directly take the set refrative index</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.GetLockStatus">
-            <summary>
-            This function returns if the device is locked and if the current client is authorized to use the device.
-            </summary>
-            <returns>
-            locked: locked Is the device locked?
-            authorized: authorized Is the client authorized?
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.GrantAccess(System.String)">
-            <summary>
-            Grants access to a locked device for the requesting IP by checking against the password
-            </summary>
-            <param name="password">string the current password</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Lock(System.String)">
-            <summary>
-            This function locks the device with a password, so the calling of functions is only possible with this password. The locking IP is automatically added to the devices which can access functions
-            </summary>
-            <param name="password">string the password to be set</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Manual_GetHumidityInPercent(System.Int32)">
-            <summary>
-            Reads out the manually configured humidity (compensation mode 1).
-            </summary>
-            <param name="axis">Axis to get the humidity for.Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
-            <returns>
-            humidity: doublehumidity in hPa
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Manual_GetPressureInHPa(System.Int32)">
-            <summary>
-            Reads out the manually configured Pressure (compensation mode 1).
-            </summary>
-            <param name="axis">Axis to get the pressure for.Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
-            <returns>
-            pressure: doublepressure in hPa
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Manual_GetRefractiveIndex(System.Int32)">
-            <summary>
-            Reads out the manually configured value for the refractive index (compensation mode 2).
-            </summary>
-            <param name="axis">Axis to get the mode for.Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
-            <returns>
-            rindex: doublerefractive index
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Manual_GetTemperatureInDegrees(System.Int32)">
-            <summary>
-            Reads out the manually configured Temperature (compensation mode 1).
-            </summary>
-            <param name="axis">Axis to set the temperature for.Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
-            <returns>
-            temperature: doubletemperature in degree celsius
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Manual_SetHumidityInPercent(System.Int32,System.Double)">
-            <summary>
-            Sets the manually configured Humidity (compensation mode 1). The input range is defined to 0 to 100 % (valid range for the Ciddor Equation).
-            </summary>
-            <param name="axis">Axis to set the humidity for.Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
-            <param name="humidity">humidity in Percent</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Manual_SetPressureInHPa(System.Int32,System.Double)">
-            <summary>
-            Sets the manually configured Pressure (compensation mode 1). The input range is defined to 800 to 1200 hPa (valid range for the Ciddor Equation).
-            </summary>
-            <param name="axis">Axis to set the pressure for-Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
-            <param name="pressure">pressure in hPa</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Manual_SetRefractiveIndex(System.Int32,System.Double)">
-            <summary>
-            Sets the refractive index for the direct mode (compensation mode 2). The input range is defined to be greater than 1.
-            </summary>
-            <param name="axis">Axis to set the mode for.Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
-            <param name="rindex">refractive index</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Manual_SetTemperatureInDegrees(System.Int32,System.Double)">
-            <summary>
-            Sets the manually configured Temperature (compensation mode 1). The input range is defined to -40 to +100 °C (valid range for the Ciddor Equation).
-            </summary>
-            <param name="axis">Axis to set the temperature for.Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
-            <param name="temperature">temperature in degree celcius</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_ClearLut(System.Int32)">
-            <summary>
-            Deactivates the LUT and removes it from the device
-            </summary>
-            <param name="axis">Axis [0|1|2] of the IDS</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_CreateLut(System.Int32)">
-            <summary>
-            Creates a new LUT for the given axis.
-            </summary>
-            <param name="axis">Axis [0|1|2] of the IDS where the LUT should be generated</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_EstimateNonlinearities(System.Int32)">
-            <summary>
-            Estimates the nonlinearity error for the current device settings without changing or updating any settings.
-            </summary>
-            <param name="axis">Axis [0|1|2] of the IDS of which the nonlinearity error is to be estimated</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_GetDynamicNormalization(System.Int32)">
-            <summary>
-            Returns the normalization mode of a specific axis.
-            </summary>
-            <param name="axis">Axis [0|1|2] of the IDS of which the normalization mode is queried</param>
-            <returns>
-            mode: int32Normalization Mode0    Dynamic normalization1    Normalization frozen2    Normalization mode determined by target velocity
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_GetHistogram(System.Int32)">
-            <summary>
-            Returns a histogram of the measured nonlinearity errors obtained from the last call of createLut or estimateNonlinearites.
-            </summary>
-            <param name="axis">Axis [0|1|2] of the IDS</param>
-            <returns>
-            histogram: stringJson dumped histogram array
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_GetLut(System.Int32)">
-            <summary>
-            Returns the LUT determined by createLut (which can be applied by setLutApplied).
-            </summary>
-            <param name="axis">Axis [0|1|2] of the IDS</param>
-            <returns>
-            lut: stringJson dumped LUT array with 512 integers
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_GetLutApplied(System.Int32)">
-            <summary>
-            Returns whether a LUT is applied or not for a given axis.
-            </summary>
-            <param name="axis">Axis [0|1|2] of the IDS of which the LUT apply rule is queried</param>
-            <returns>
-            apply: booleanTrue, if LUT is applied on this axis else False
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_GetLutStatus(System.Int32)">
-            <summary>
-            Returns if a LUT is available and if warnings or errors occurred during creation.
-            </summary>
-            <param name="axis">Axis [0|1|2] of the IDS of which the status of the LUT should be returned</param>
-            <returns>
-            status: booleanTrue, if a LUT exists else False
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_GetNonlinearityEstimation">
-            <summary>
-            Returns the LUT created by estimateNonlinearities (read-only mode) to compensate the nonlinearity error of the device for the current device settings. If no estimation was created an array of zeros is returned.
-            </summary>
-            <returns>
-            lut: stringJson dumped LUT array with 512 integers
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_GetVelocityThresholds">
-            <summary>
-            Returns the threshold velocity (in µm/s) for mode 2 of setDynamicNormalization.
-            </summary>
-            <returns>
-            velocityOn: int32Velocity of the target in µm/s when to switch the normalization on (default: 10 µm/s)
-            velocityOff: int32Velocity of the target in µm/s when to switch the normalization off (default: 5 µm/s)
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_SetDynamicNormalization(System.Int32,System.Int32)">
-            <summary>
-            Sets the normalization mode of a specific axis.
-            </summary>
-            <param name="axis">Axis [0|1|2] of the IDS of which the normalization mode should be set</param>
-            <param name="mode">Normalization Mode0    Dynamic normalization (default)1    Normalization frozen (for slow target drifts)2    Automatic alternation between mode 0 and 1 depending on the target velocity</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_SetLut(System.Int32,System.String)">
-            <summary>
-            Uploads a LUT for a specific axis (which can be applied by setLutApplied)
-            </summary>
-            <param name="axis">Axis [0|1|2] of the IDS</param>
-            <param name="lut">Json dumped LUT array with 512 integers</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_SetLutApplied(System.Int32,System.Boolean)">
-            <summary>
-            Sets the apply rule for the given axis
-            </summary>
-            <param name="axis">Axis [0|1|2] of the IDS of which the apply rule should be set</param>
-            <param name="apply">True for applying a LUT, False for disabling a LUT</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Nlc_SetVelocityThresholds(System.Int32,System.Int32)">
-            <summary>
-            Sets the threshold velocity (in µm/s) for mode 2 of setDynamicNormalization. By default, the normalization in mode 2 is frozen for velocities below 5 µm/s and switched to dynamic mode for velocities above 10 µm/s.
-            </summary>
-            <param name="velocityOn">Velocity of the target in µm/s when to switch the normalization on (default: 10 µm/s)</param>
-            <param name="velocityOff">Velocity of the target in µm/s when to switch the normalization off (default: 5 µm/s)</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Pilotlaser_Disable">
-            <summary>
-            Disables the pilot laser.
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Pilotlaser_Enable">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Pilotlaser_Enable">
             <summary>
             Enables the pilot laser.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Pilotlaser_GetEnabled">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Pilotlaser_Disable">
+            <summary>
+            Disables the pilot laser.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Pilotlaser_GetEnabled">
             <summary>
             Reads out whether the pilot laser is enabled or not.
             </summary>
             <returns>
-            enable: enable true = enabled; false = disabled
+              [0] value_enabled: enabled true = enabled; false = disabled
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_AafIsEnabled">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetRtOutMode">
+            <summary>
+            Reads out the current real-time output mode.
+            </summary>
+            <returns>
+              [0] value_rtOutMode: rtOutMode 0 = HSSL (LVTTL), 1 = HSSL (LVDS), 2 = AquadB (LVTTL),/n3 = AquadB (LVDS), 4 = Sin/Cos (LVTTL error signal),/n5 = Sin/Cos (LVDS error signal), 6 = Linear (LVTTL error signal), 7 = Linear (LVDS error signal),/n8 = BiSS-C, 9 = Deactivated
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_SetRtOutMode(System.Int32)">
+            <summary>
+            Sets the real-time output mode.
+            </summary>
+            <param name="rtOutMode">0 = HSSL (LVTTL), 1 = HSSL (LVDS), 2 = AquadB (LVTTL),/n3 = AquadB (LVDS), 4 = Sin/Cos (LVTTL error signal),/n5 = Sin/Cos (LVDS error signal), 6 = Linear (LVTTL error signal), 7 = Linear (LVDS error signal),/n8 = BiSS-C, 9 = Deactivated</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetRtDistanceMode">
+            <summary>
+            Reads out the distance mode.
+            </summary>
+            <returns>
+              [0] value_mode: mode 1 = Displacement (all modes)/n2 = Absolute Distance (HSSL mode and BiSS C mode)/n3 = Vibrometry (Linear mode only)
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_SetRtDistanceMode(System.Int32)">
+            <summary>
+            Sets the distance mode.
+            </summary>
+            <param name="mode">1 = Displacement (all modes)/n2 = Absolute Distance (HSSL mode and BiSS C mode)/n3 = Vibrometry (Linear mode only)</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetResolutionBissC">
+            <summary>
+            Reads out the BiSS C resolution.
+            </summary>
+            <returns>
+              [0] value_resolution: resolution value from 0 to 16
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_SetResolutionBissC(System.Int32)">
+            <summary>
+            Sets the BiSS C resolution.
+            </summary>
+            <param name="resolution">value from 0 to 16</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetResolutionHsslLow">
+            <summary>
+            Reads out the HSSL resolution low bit.
+            </summary>
+            <returns>
+              [0] value_resolution: resolution value from 0 to 46
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_SetResolutionHsslLow(System.Int32)">
+            <summary>
+            Sets the HSSL resolution low bit.
+            </summary>
+            <param name="resolution">value from 0 to 46</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetResolutionHsslHigh">
+            <summary>
+            Reads out the HSSL resolution high bit.
+            </summary>
+            <returns>
+              [0] value_resolution: resolution value from 1 to 47
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_SetResolutionHsslHigh(System.Int32)">
+            <summary>
+            Sets the HSSL resolution high bit.
+            </summary>
+            <param name="resolution">value from 1 to 47</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetLinearRange">
+            <summary>
+            Reads out the range number N of Linear analog output mode.
+            </summary>
+            <returns>
+              [0] value_rangenumber: rangenumber value from 0 to 34
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_SetLinearRange(System.Int32)">
+            <summary>
+            Sets the range number of Linear analog output mode.
+            </summary>
+            <param name="rangenumber">value from 0 to 34</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetPeriodHsslClk">
+            <summary>
+            Reads out the HSSL period clock.
+            </summary>
+            <returns>
+              [0] value_period: period value from 40 ns to 10200 ns
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_SetPeriodHsslClk(System.Int32)">
+            <summary>
+            Set the HSSL period clock.
+            </summary>
+            <param name="period">value from 40 ns to 10200 ns</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetPeriodHsslGap">
+            <summary>
+            Reads out the HSSL period gap as number of clocks.
+            </summary>
+            <returns>
+              [0] value_gap: gap value from 1 to 255
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_SetPeriodHsslGap(System.Int32)">
+            <summary>
+            Set the HSSL period gap as number of clocks.
+            </summary>
+            <param name="gap">value from 1 to 255</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetPeriodSinCosClk">
+            <summary>
+            Reads out the Sin/Cos and AquadB period clock.
+            </summary>
+            <returns>
+              [0] value_period: period value from 40 ns to 10200 ns
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_SetPeriodSinCosClk(System.Int32)">
+            <summary>
+            Sets the Sin/Cos and AquadB period clock.
+            </summary>
+            <param name="period">value from 40 ns to 10200 ns</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetResolutionSinCos">
+            <summary>
+            Reads out the Sin/Cos and AquadB resolution.
+            </summary>
+            <returns>
+              [0] value_resolution: resolution value from 1 pm to 65535 pm
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_SetResolutionSinCos(System.Int32)">
+            <summary>
+            Sets the Sin/Cos and AquadB resolution.
+            </summary>
+            <param name="resolution">value from 1 pm to 65535 pm</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetHighPassCutOffFreq">
+            <summary>
+            Reads out the high pass filter number of Linear analog output mode.
+            </summary>
+            <returns>
+              [0] value_filternumber: filternumber value from 1 to 24
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_SetHighPassCutOffFreq(System.Int32)">
+            <summary>
+            Sets the high pass filter number of Linear analog output mode.
+            </summary>
+            <param name="filternumber">value from 1 to 24</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_SetAaf(System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Sets the anti-aliasing filter with assigned filter window.
+            </summary>
+            <param name="enable">true = enable; false = disable</param>
+            <param name="attenuation">value from 3 dB to 30 dB</param>
+            <param name="window">0 = Rectangular,/n1 = Cosine,/n2 = Cosine^2,/n3 = Hamming,/n4 = Raised Cosine</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetAafAttenuation">
+            <summary>
+            Returns the current attenuation of the anti-aliasing filter.
+            </summary>
+            <returns>
+              [0] value_attenuation: attenuation value from 3 dB to 30 dB (default: 15 dB)
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetAafWindow">
+            <summary>
+            Returns the current filter window of the anti-aliasing filter.
+            </summary>
+            <returns>
+              [0] value_window: window 0 = Rectangular,/n1 = Cosine,/n2 = Cosine^2,/n3 = Hamming,/n4 = Raised Cosine (default)
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetAafEnabled">
             <summary>
             Checks if the anti-aliasing filter is enabled.
             </summary>
             <returns>
-            enabled: enabled false: Anti-Aliasing Filter is disabledtrue: Anti-Aliasing Filter is enabled
+              [0] value_enabled: enabled true = enabled; false = disabled
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_Apply">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_Apply">
             <summary>
-            Applies new real time settings. Necessary after JSON realtime set commands.
+            Applies new real-time settings.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_DisableTestChannel">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_Discard">
+            <summary>
+            Discards new real-time settings.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_EnableTestChannel">
+            <summary>
+            Enables the test channel on measurement axis 0, which can be used for estimating the maximum signal range./nThis function is only available in the "system idle" state (please refer to the getCurrentMode function).
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_DisableTestChannel">
             <summary>
             Disables the test channel.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_Discard">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Realtime_GetTestChannelEnabled">
             <summary>
-            Discards new real time settings. Necessary after JSON set commands in case of failure.
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_EnableTestChannel(System.Int32)">
-            <summary>
-            Enables the Test Channel, which can be used for estimating the maximum signal range.
-            </summary>
-            <param name="axis">Test Channel Master Axis</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetAafAttenuation">
-            <summary>
-            Returns the current attenuation at f_nyquist of the anti-aliasing filter.
+            Checks if the test channels are enabled.
             </summary>
             <returns>
-            attenuation: attenuation [3-30] dB m f_nyquist
+              [0] value_enabled: enabled true = enabled; false = disabled
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetAafEnabled">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_StopMeasurement">
             <summary>
-            Checks if the anti-aliasing filter is enabled.
-            </summary>
-            <returns>
-            enabled: enabled false - the Anti-Aliasing Filter is disabledtrue - the Anti-Aliasing Filter is enabled
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetAafWindow">
-            <summary>
-            Returns the current filter window of the anti-aliasing filter.
-            </summary>
-            <returns>
-            window: window 0 = Rectangular,1 = Cosine,2 = Cosine^2,3 = Hamming,4 = Raised Cosine,5 = Automatic
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetHighPassCutOffFreq">
-            <summary>
-            Reads out the high pass filter number of Linear/Analog output mode.
-            </summary>
-            <returns>
-            value: value N, Linear Analog High Pass Cut-Off freqency is 1600/2^N kHz, with N \\in [1,24]
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetLinearRange">
-            <summary>
-            Reads out the range number of Linear/Analog output mode.
-            </summary>
-            <returns>
-            rangenumber: rangenumber N, Linear Analog Range is +-2^(N+11) pm, with N \\in [0, 34]
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetPeriodHsslClk">
-            <summary>
-            Reads out the HSSL period clock.
-            </summary>
-            <returns>
-            period: period Period in the Range of [40ns..10200ns]
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetPeriodHsslGap">
-            <summary>
-            Reads out the HSSL period gap.
-            </summary>
-            <returns>
-            gap: gap Number of clocks
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetPeriodSinCosClk">
-            <summary>
-            Reads out the Sine-Cosine and AquadB period clock.
-            </summary>
-            <returns>
-            period: period 40ns to 10200ns
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetResolutionBissC">
-            <summary>
-            Reads out the BissC resolution.
-            </summary>
-            <returns>
-            resolution: resolution 1pm to 65535pm
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetResolutionHsslHigh">
-            <summary>
-            Reads out the HSSL resolution high bit.
-            </summary>
-            <returns>
-            resolution: resolution Resolution in the Range of [0..46]
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetResolutionHsslLow">
-            <summary>
-            Reads out the HSSL resolution low bit.#
-            </summary>
-            <returns>
-            resolution: resolution Resolution in the range of [0..46]
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetResolutionSinCos">
-            <summary>
-            Reads out the Sine-Cosine and AquadB resolution.
-            </summary>
-            <returns>
-            resolution: resolution 1pm to 65535pm
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetRtDistanceMode">
-            <summary>
-            Reads out the distance mode. Depending on the realtime output mode, the mode can
-            be Displacement (returns 1), Absolute Distance (returns 2) or Vibrometry (returns 3).
-            </summary>
-            <returns>
-            linearmode: linearmode 1 = Displacement (Available in HSSL mode and Linear Mode)2 = Absolute Distance (Available in HSSL mode only)3 = Vibrometry (Available in Linear mode)
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetRtOutMode">
-            <summary>
-            Reads out the current realtime output mode.
-            </summary>
-            <returns>
-            rtOutMode: rtOutMode 0 = HSSL (TTL), 1 = HSSL (LVDS), 2 = AquadB (TTL),3 = AquadB (LVDS), 4 = SinCos (TTL Error Signal),5 = SinCos (LVDS Error Signal), 6 = Linear (TTL), 7 = Linear (LVDS),8 = BiSS-C, 9 = Deactivated
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_GetTestChannelEnabled">
-            <summary>
-            Checks if the test channel is enabled
-            </summary>
-            <returns>
-            enabled: enabled true = enabled, false = disabled
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_SetAaf(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Sets the anti-aliasing filter with assigned filter window.
-            </summary>
-            <param name="enabled">0 - disables the Anti-Aliasing Filter1 - enables the Anti-Aliasing Filter</param>
-            <param name="attenuation">[3-30] dB m f_nyquist</param>
-            <param name="window">0 = Rectangular,1 = Cosine,2 = Cosine^2,3 = Hamming,4 = Raised Cosine,5 = Automatic</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_SetHighPassCutOffFreq(System.Int32)">
-            <summary>
-            Sets the high pass filter number of Linear/Analog output mode.
-            </summary>
-            <param name="value">N, Linear Analog High Pass Cut-Off freqency is 1600/2^N kHz, with N \\in [1,24]</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_SetLinearRange(System.Int32)">
-            <summary>
-            Sets the range number of Linear/Analog output mode.
-            </summary>
-            <param name="rangenumber">N, Linear Analog Range is +-2^(N+11) pm, with N \\in [0, 34]</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_SetPeriodHsslClk(System.Int32)">
-            <summary>
-            Set the HSSL period clock. The value has to be a multiple of 40ns. If not, the value automatically is rounded.
-            </summary>
-            <param name="period">Period in the Range of [40ns..10200ns]</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_SetPeriodHsslGap(System.Int32)">
-            <summary>
-            Set the HSSL gap.
-            </summary>
-            <param name="value">Number of clocks</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_SetPeriodSinCosClk(System.Int32)">
-            <summary>
-            Sets the Sine-Cosine and AquadB period clock. The value has to be a multiple of 40ns. If not, the value automatically is rounded.
-            </summary>
-            <param name="value">period 40ns to 10200ns</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_SetResolutionBissC(System.Int32)">
-            <summary>
-            Sets the BissC resolution.
-            </summary>
-            <param name="value">resolution 1pm to 65535pm</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_SetResolutionHsslHigh(System.Int32)">
-            <summary>
-            Sets the HSSL resolution high bit.
-            </summary>
-            <param name="value">Resolution in the Range of [0..46]</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_SetResolutionHsslLow(System.Int32)">
-            <summary>
-            Sets the HSSL resolution low bit.
-            </summary>
-            <param name="value">Resolution in the Range of [0..46]</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_SetResolutionSinCos(System.Int32)">
-            <summary>
-            Sets the Sine-Cosine and AquadB resolution.
-            </summary>
-            <param name="value">resolution 1pm to 65535pm</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_SetRtDistanceMode(System.Int32)">
-            <summary>
-            Sets the distance mode. Depending on the configuration of the IDS the mode can be
-            Displacement (returns 1), Absolute Distance (returns 2) or Vibrometry (returns 3).
-            </summary>
-            <param name="value">1 = Displacement (HSSL mode and Linear Mode)2 = Absolute Distance (HSSL mode only)3 = Vibrometry (Linear mode)</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Realtime_SetRtOutMode(System.Int32)">
-            <summary>
-            Sets the real time output mode.
-            </summary>
-            <param name="value">rtOutMode 0 = HSSL (TTL), 1 = HSSL (LVDS), 2 = AquadB (TTL),3 = AquadB (LVDS), 4 = SinCos (TTL Error Signal),5 = SinCos (LVDS Error Signal), 6 = Linear (TTL), 7 = Linear (LVDS),8 = BiSS-C, 9 = Deactivated</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_GetCurrentMode">
-            <summary>
-            Reads out the current IDS system state.
-            </summary>
-            <returns>
-            mode: mode Values: "system idle", "measurement starting", "measurement running", "optics alignment starting", "optics alignment running", "test channels enabled"
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_GetDeviceType">
-            <summary>
-            Reads out the IDS device type. For differences between the device types please refer to the IDS User Manual.
-            </summary>
-            <returns>
-            type: type Type of IDS (e.g. "IDS3010")
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_GetFeaturesName(System.Int32)">
-            <summary>
-            Converts the IDS feature number to its corresponding name.
-            </summary>
-            <param name="featurenumber">Number of feature</param>
-            <returns>
-            names: names The name of the corresponding feature
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_GetFpgaVersion">
-            <summary>
-            Reads out the IDS FPGA version.
-            </summary>
-            <returns>
-            version: version Version in the form X.Y.Z
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_GetInitMode">
-            <summary>
-            Returns the Initialization mode.
-            </summary>
-            <returns>
-            mode: mode 0 = High Accuracy Initialization; 1 = Quick Initialization
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_GetNbrFeaturesActivated">
-            <summary>
-            Reads out the amount of activated features activated on the IDS.
-            </summary>
-            <returns>
-            nbr: nbr Gives the number of activated features.
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_GetSystemError">
-            <summary>
-            Reads out the system error. The function returns an integer number which represents
-            the error. The number can be converted into a string using the errorNumberToString
-            function.
-            Use this function to query errors occured while starting and running measurements and alignments.
+            Stops the measurement system state.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_ResetAxes">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_StartMeasurement">
             <summary>
-            Resets the position value of all measurement axes to zero.
+            Starts the measurement system state./nThis function is only available in the "system idle" state (please refer to the getCurrentMode function)
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_ResetAxis(System.Int32)">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_RestartMeasurement">
             <summary>
-            Resets the position value of a specific measurement axis to zero.
+            Restarts the absolute measurement system state./nThis function is only available in the "measurement running" state (please refer to the getCurrentMode function).
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_StartOpticsAlignment">
+            <summary>
+            Starts the optical alignment system state./nThis function is only available in the "system idle" state (please refer to the getCurrentMode function).
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_StopOpticsAlignment">
+            <summary>
+            Stops the optical alignment system state./nThis function is only available in the "optics alignment running" state (please refer to the getCurrentMode function).
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_ResetAxes">
+            <summary>
+            Resets the displacement value of all measurement axes to zero.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_ResetAxis(System.Int32)">
+            <summary>
+            Resets the displacement value of a specific measurement axis to zero.
             </summary>
             <param name="axis">[0|1|2]</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_ResetError(System.Boolean)">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_ResetError(System.Boolean)">
             <summary>
-            Resets a measurement error that can have occurred with the aim to continue the interrupted measurement. It is configurable if an additional renormalization process (please refer to the IDS User Manual) should be performed or not.
-            
-            This function can be used for two concerns:
-            1.	FALSE: This function only clears displacement errors (e.g. after a beam interruption) of all three axes, while the displacement measurement is running.
-            2.	TRUE: This function can be utilized to normalize the Lissajous-Figure of all three optical axes during the running displacement measurement by sweeping the laser temperature and to clear all displacement errors. This normalization process takes around 14-20 seconds. This function can be used, for example, in two main applications:
-            A.	The alignment contrast decreases due to the angular change of the target and/or sensor head without any displacements (see Figure 45). Using this function, the Lissajous-Figure of each measurement axis gets normalized and high-resolution measurements are guaranteed.
-            B.	After changing the optical components as, for example, the retro reflector this function can be used to normalize the Lissajous-Figure after completely losing the signal (see Figure 46).
-            Attention: Depending on the Boolean input parameter performRenormalisation, it can be decided, if the renormalization process should be executed or skipped. If it is executed, the IDS system needs around 14-20 seconds to get back to the measurement mode. It is also important to comment that the recommended action after an error is to stop and to restart the displacement measurement. Moreover, losing displacement values due to an occurred error the internal absolute position can be different to the real absolute position and this can could result in dynamic movement errors or a wrong ECU compensation during long-term displacement measurements.
+            Resets a measurement error that has been raised with the aim to continue the interrupted measurement./nIt is configurable if an additional renormalization process (please refer to the device user manual) should be performed or not./n/n  This function can be used in two cases:/n 	1.
             </summary>
-            <param name="perform">renormalization</param>
+            <param name="performRenormalization">true = enable; false = disable</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_SetInitMode(System.Int32)">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_GetCurrentMode">
+            <summary>
+            Reads out the current device system state.
+            </summary>
+            <returns>
+              [0] value_mode: mode "system idle", "measurement starting", "measurement running", "measurement restarting",/n"optics alignment starting", "optics alignment running", "test channels enabled"
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_GetFpgaVersion">
+            <summary>
+            Reads out the device FPGA version.
+            </summary>
+            <returns>
+              [0] value_version: version version in the form X.Y.Z
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_GetDeviceType">
+            <summary>
+            Reads out the device type.
+            </summary>
+            <returns>
+              [0] value_type: type type of the device (e.g. "IDS3010")
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_GetSystemError">
+            <summary>
+            Reads out the system error.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_GetNbrFeaturesActivated">
+            <summary>
+            Reads out the number of the activated features on the device.
+            </summary>
+            <returns>
+              [0] value_nbr: nbr the number of activated features
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_GetFeaturesName(System.Int32)">
+            <summary>
+            Converts the device feature number to its corresponding name.
+            </summary>
+            <param name="featurenumber">number of features</param>
+            <returns>
+              [0] value_names: names name of the corresponding feature
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_GetInitMode">
+            <summary>
+            Returns the initialization mode.
+            </summary>
+            <returns>
+              [0] value_mode: mode 0 = High Accuracy Initialization; 1 = Quick Initialization (default: 0)
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.System_SetInitMode(System.Int32)">
             <summary>
             Sets the mode for the initialization procedure that is performed when starting a measurement.
             </summary>
             <param name="mode">0 = High Accuracy Initialization; 1 = Quick Initialization</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_StartMeasurement">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Manual_GetHumidityInPercent(System.Int32)">
             <summary>
-            Starts the displacement measurement system state.
-            Please query errors during starting and running measurements by system.getSystemError
+            Reads out the manually configured humidity for compensation mode 1.
             </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_StartOpticsAlignment">
-            <summary>
-            Starts the optical alignment system state.
-            Please query errors during starting and running alignments by system.getSystemError
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_StopMeasurement">
-            <summary>
-            Stops the displacement measurement system state.
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.System_StopOpticsAlignment">
-            <summary>
-            Stops the optical alignment system state.
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Unlock(System.String)">
-            <summary>
-            This function unlocks the device, so it will not be necessary to execute the grantAccess function to run any function
-            </summary>
-            <param name="password">string the current password</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.About_GetInstalledPackages">
-            <summary>
-            Get list of packages installed on the device
-            </summary>
+            <param name="axis">[0|1|2]Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
             <returns>
-            value_string1: string: Comma separated list of packages
+              [0] humidity: value in percent
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.About_GetPackageLicense(System.String)">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Manual_GetPressureInHPa(System.Int32)">
             <summary>
-            Get the license for a specific package
+            Reads out the manually configured air pressure for compensation mode 1.
+            </summary>
+            <param name="axis">[0|1|2]Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
+            <returns>
+              [0] pressure: value in hPa
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Manual_GetRefractiveIndex(System.Int32)">
+            <summary>
+            Reads out the manually configured refractive index for compensation mode 2.
+            </summary>
+            <param name="axis">[0|1|2]Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
+            <returns>
+              [0] rindex: refractive index
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Manual_GetTemperatureInDegrees(System.Int32)">
+            <summary>
+            Reads out the manually configured temperature for compensation mode 1.
+            </summary>
+            <param name="axis">[0|1|2]Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
+            <returns>
+              [0] temperature: value in degrees Celsius
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Manual_SetHumidityInPercent(System.Int32,System.Double)">
+            <summary>
+            Sets the manually configured humidity for compensation mode 1. The input range is defined to 0 to 100 % (valid range for the Ciddor Equation).
+            </summary>
+            <param name="axis">[0|1|2]Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
+            <param name="humidity">value from 0 % to 100 %</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Manual_SetPressureInHPa(System.Int32,System.Double)">
+            <summary>
+            Sets the manually configured air pressure for compensation mode 1. The input range is defined to 800 to 1200 hPa (valid range for the Ciddor Equation).
+            </summary>
+            <param name="axis">[0|1|2]Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
+            <param name="pressure">value from 800 hPa to 1200 hPa</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Manual_SetRefractiveIndex(System.Int32,System.Double)">
+            <summary>
+            Sets the manually configured refractive index for the compensation mode 2. The input range is defined to be greater than 1.
+            </summary>
+            <param name="axis">[0|1|2]Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
+            <param name="rindex">refractive index</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Manual_SetTemperatureInDegrees(System.Int32,System.Double)">
+            <summary>
+            Sets the manually configured temperature for compensation mode 1. The input range is defined to -40 to +100 °C (valid range for the Ciddor Equation).
+            </summary>
+            <param name="axis">[0|1|2]Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
+            <param name="temperature">value from -40 °C to +100 °C</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Ecu_Disable">
+            <summary>
+            Disables the ECU interface.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Ecu_Enable">
+            <summary>
+            Enables the ECU interface.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Ecu_GetConnected">
+            <summary>
+            Reads out whether the ECU interface is physically connected or not. Checking if the ECU is connected can only be done on an enabled ECU interface.
+            </summary>
+            <returns>
+              [0] connected: true = connected; false = disconnected
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Ecu_GetEnabled">
+            <summary>
+            Reads out whether the ECU interface is enabled or not. Enabling the ECU interface is crucial for working with the ECU.
+            </summary>
+            <returns>
+              [0] enabled: true = enabled; false = disabled
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Ecu_GetHumidityInPercent">
+            <summary>
+            Reads out the ECU measured air humidity in percent.
+            </summary>
+            <returns>
+              [0] humidity: value in percent
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Ecu_GetPressureInHPa">
+            <summary>
+            Reads out the ECU measured air pressure in hPa.
+            </summary>
+            <returns>
+              [0] pressure: value in hPa
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Ecu_GetRefractiveIndex">
+            <summary>
+            Reads out the ECU estimated refractive index from the current ECU values. To get the refractive index for other compensation modes, please refer to the getRefractiveIndexForCompensation function.
+            </summary>
+            <returns>
+              [0] rIndex: refractive index
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Ecu_GetRefractiveIndexCompensationMode(System.Int32)">
+            <summary>
+            Reads out the compensation mode which is currently used for the environmental compensation.
+            </summary>
+            <param name="axis">[0|1|2]Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
+            <returns>
+              [0] mode: 0 = direct ECU mode 1 = uses refractive index calculated from the manually set values2 = uses manually set refrative index
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Ecu_GetRefractiveIndexForCompensation(System.Int32)">
+            <summary>
+            Reads out the refractive index used according to the current environmental compensation mode for a specific measurement axis.
+            </summary>
+            <param name="axis">[0|1|2]Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
+            <returns>
+              [0] rIndex: refractive index
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Ecu_GetTemperatureInDegrees">
+            <summary>
+            Reads out the ECU measured air temperature in degrees Celsius.
+            </summary>
+            <returns>
+              [0] temperature: value in degrees Celsius
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Ecu_SetRefractiveIndexCompensationMode(System.Int32,System.Int32)">
+            <summary>
+            Sets the refractive index compensation mode.
+            </summary>
+            <param name="axis">[0|1|2]Parameter has to be -1 for the moment,individual axes will be supported in the next firmware release</param>
+            <param name="mode">0 = direct ECU mode 1 = uses refractive index calculated from the manually set values2 = uses manually set refrative index</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_ClearLut(System.Int32)">
+            <summary>
+            Deactivates the LUT and removes it from the device for a specific measurement axis.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_CreateLut(System.Int32)">
+            <summary>
+            Creates a new LUT for a specific measurement axis.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_EstimateNonlinearities(System.Int32)">
+            <summary>
+            Estimates the nonlinearity error for the current device settings without changing or updating any settings.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_GetDynamicNormalization(System.Int32)">
+            <summary>
+            Returns the normalization mode of a specific measurement axis.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+              [0] mode: 0 = dynamic normalization (default)1 = normalization frozen (for slow target drifts)2 = normalization mode determined by target velocity
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_GetHistogram(System.Int32)">
+            <summary>
+            Returns a histogram of the measured nonlinearity errors obtained from the last call of the createLut or estimateNonlinearites functions.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+              [0] histogram: histogram array
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_GetLut(System.Int32)">
+            <summary>
+            Returns the LUT determined by the createLut function, which can be applied by the setLutApplied function.        Attention: the LUT values represent the internal units. To convert the LUT values into nm, please multiply the LUT array by factor ((2^16-1)*(1530/2)).
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+              [0] lut: LUT array with 512 integers
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_GetLutApplied(System.Int32)">
+            <summary>
+            Returns whether a LUT is applied or not for a specific measurement axis.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+              [0] apply: true = applied; false = disabled
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_GetLutStatus(System.Int32)">
+            <summary>
+            Reads out whether the LUT is available or not for a specific measurement axis.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+              [0] status: true if a LUT exists, else false
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_GetNonlinearityEstimation">
+            <summary>
+            Returns the LUT created by the estimateNonlinearities function (read-only mode) to compensate the nonlinearity error of the device for the current device settings. If no estimation was created an array of zeros is returned.        Attention: the LUT values represent the internal units. To convert the LUT values into nm, please multiply the LUT array by factor ((2^16-1)*(1530/2)).
+            </summary>
+            <returns>
+              [0] lut: LUT array with 512 integers
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_GetRawLut(System.Int32)">
+            <summary>
+            Returns the raw LUT created by the createLut or estimateNonlinearites functions.        Attention: the LUT values represent the internal units. To convert the LUT values into nm, please multiply the LUT array by factor ((2^16-1)*(1530/2)).            For debugging only.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+              [0] raw_lut: Json dumped lut array
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_GetVelocityThresholds">
+            <summary>
+            Returns the threshold velocities for mode 2 of the setDynamicNormalization function.
+            </summary>
+            <returns>
+              [0] velocityOn: target velocity in µm/s (default: 10 µm/s)
+              [1] velocityOff: target velocity in µm/s (default: 5 µm/s)
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_SetDynamicNormalization(System.Int32,System.Int32)">
+            <summary>
+            Sets the normalization mode of a specific measurement axis.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <param name="mode">0 = dynamic normalization 1 = normalization frozen (for slow target drifts)2 = automatic alternation between mode 0 and 1 depending on the target velocity</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_SetLut(System.Int32,System.String)">
+            <summary>
+            Uploads a LUT for a specific measurement axis, which can be applied by the setLutApplied function.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <param name="lut">LUT array with 512 integers</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_SetLutApplied(System.Int32,System.Boolean)">
+            <summary>
+            Applies the LUT for a specific measurement axis.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <param name="apply">true = apply LUT; false = disable LUT</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Nlc_SetVelocityThresholds(System.Int32,System.Int32)">
+            <summary>
+            Sets the threshold velocities for mode 2 of the setDynamicNormalization function. By default, the normalization in mode 2 is frozen for velocities below 5 µm/s and switches to dynamic mode for velocities above 10 µm/s.
+            </summary>
+            <param name="velocityOn">target velocity in µm/s (default: 10 µm/s)</param>
+            <param name="velocityOff">target velocity in µm/s (default: 5 µm/s)</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.About_GetInstalledPackages">
+            <summary>
+            Get list of packages installed on the device.
+            </summary>
+            <returns>
+              [0] value_string: string: comma separated list of packages
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.About_GetPackageLicense(System.String)">
+            <summary>
+            Get the license for a specific package.
             </summary>
             <param name="pckg">string: Package name</param>
             <returns>
-            value_string1: string: License for this package
+              [0] value_string: string: license for this package
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Apply">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Update_GetSwUpdateProgress">
             <summary>
-            Apply temporary system configuration
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.ErrorNumberToRecommendation(System.Int32,System.Int32)">
-            <summary>
-            Get a recommendation for the error code
-            </summary>
-            <param name="language">integer: Language code</param>
-            <param name="errNbr">interger: Error code to translate</param>
-            <returns>
-            value_string1: string: Error recommendation (currently returning an int = 0 until we have recommendations)
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.ErrorNumberToString(System.Int32,System.Int32)">
-            <summary>
-            Get a description of an error code
-            </summary>
-            <param name="language">integer: Language code 0 for the error name, 1 for a more user friendly error message</param>
-            <param name="errNbr">interger: Error code to translate</param>
-            <returns>
-            value_string1: string: Error description
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.FactoryReset">
-            <summary>
-            Turns on the factory reset flag. To perform the factory reset, a reboot is necessary afterwards. All settings will be set to default and the IDS will be configured as DHCP server.
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Functions_CheckAMCinRack">
-            <summary>
-            If AMC is on Rack position 0, use it as DHCP server, else use it as DHCP client
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.GetDeviceName">
-            <summary>
-            Get the actual device name
+            Gets the progress of running update.
             </summary>
             <returns>
-            value_string1: string: actual device name
+              [0] value_progress: progress value in %
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.GetFirmwareVersion">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Update_GetLicenseUpdateProgress">
             <summary>
-            Get the firmware version of the system
+            Gets the progress of running license update.
             </summary>
             <returns>
-            value_string1: string: The firmware version
+              [0] value_progress: progress value in %
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.GetFluxCode">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Update_SoftwareUpdateBase64">
             <summary>
-            Get the flux code of the system
+            Executes the update with base 64 file uploaded.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Update_UploadSoftwareImageBase64(System.Int32,System.String)">
+            <summary>
+            Uploads new firmware image in format base 64.
+            </summary>
+            <param name="offset">offset of the data</param>
+            <param name="b64Data">base64 data string</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Update_UploadLicenseBase64(System.Int32,System.String)">
+            <summary>
+            Uploads new license file in format base 64.
+            </summary>
+            <param name="offset">offset of the data</param>
+            <param name="b64Data">base64 data string</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Update_LicenseUpdateBase64">
+            <summary>
+            Executes the license update with base64 file uploaded.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_GetRealIpAddress">
+            <summary>
+            Gets the real IP address of the device set to the network interface (br0, eth1 or eth0).
             </summary>
             <returns>
-            value_string1: string: flux code
+              [0] value_IP: IP IP address
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.GetHostname">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_GetIpAddress">
             <summary>
-            Return device hostname
+            Gets the IP address of the device.
             </summary>
             <returns>
-            available: available
+              [0] value_IP: IP address as string
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.GetMacAddress">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_SetIpAddress(System.String)">
             <summary>
-            Get the mac address of the system
-            </summary>
-            <returns>
-            value_string1: string: Mac address of the system
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.GetSerialNumber">
-            <summary>
-            Get the serial number of the system
-            </summary>
-            <returns>
-            value_string1: string: Serial number
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_Apply">
-            <summary>
-            Apply temporary IP configuration and load it
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_ConfigureWifi(System.Int32,System.String,System.String)">
-            <summary>
-            Change the wifi configuration and applies it
-            </summary>
-            <param name="mode">0: Access point, 1: Wifi client</param>
-            <param name="ssid"></param>
-            <param name="psk">Pre-shared key</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_Discard">
-            <summary>
-            Discard temporary IP configuration
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_GetDefaultGateway">
-            <summary>
-            Get the default gateway of the device
-            </summary>
-            <returns>
-            Default: Default gateway
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_GetDnsResolver(System.Int32)">
-            <summary>
-            Get the DNS resolver
-            </summary>
-            <param name="priority">of DNS resolver (Usually: 0 = Default, 1 = Backup)</param>
-            <returns>
-            IP: IP address of DNS resolver
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_GetEnableDhcpClient">
-            <summary>
-            Get the state of DHCP client
-            </summary>
-            <returns>
-            value_boolean1: boolean: true = DHCP client enable, false = DHCP client disable
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_GetEnableDhcpServer">
-            <summary>
-            Get the state of DHCP server
-            </summary>
-            <returns>
-            value_boolean1: boolean: true = DHCP server enable, false = DHCP server disable
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_GetIpAddress">
-            <summary>
-            Get the IP address of the device
-            </summary>
-            <returns>
-            IP: IP address as string
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_GetProxyServer">
-            <summary>
-            Get the proxy settings of the devide
-            </summary>
-            <returns>
-            Proxy: Proxy Server String, empty for no proxy
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_GetRealIpAddress">
-            <summary>
-            Get the real IP address of the device set to the network interface (br0, eth1 or eth0)
-            </summary>
-            <returns>
-            IP: IP address as string
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_GetSubnetMask">
-            <summary>
-            Get the subnet mask of the device
-            </summary>
-            <returns>
-            Subnet: Subnet mask as string
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_GetWifiMode">
-            <summary>
-            Get the operation mode of the wifi adapter
-            </summary>
-            <returns>
-            mode: mode 0: Access point, 1: Wifi client
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_GetWifiPassphrase">
-            <summary>
-            Get the the passphrase of the network hosted (mode: Access point) or connected to (mode: client)
-            </summary>
-            <returns>
-            psk: psk Pre-shared key
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_GetWifiPresent">
-            <summary>
-            Returns is a Wifi interface is present
-            </summary>
-            <returns>
-            True: True, if interface is present
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_GetWifiSSID">
-            <summary>
-            Get the the SSID of the network hosted (mode: Access point) or connected to (mode: client)
-            </summary>
-            <returns>
-            SSID: SSID
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_SetDefaultGateway(System.String)">
-            <summary>
-            Set the default gateway of the device
-            </summary>
-            <param name="gateway">Default gateway as string</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_SetDnsResolver(System.Int32,System.String)">
-            <summary>
-            Set the DNS resolver
-            </summary>
-            <param name="priority">of DNS resolver (Usually: 0 = Default, 1 = Backup)</param>
-            <param name="resolver">The resolver's IP address as string</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_SetEnableDhcpClient(System.Boolean)">
-            <summary>
-            Enable or disable DHCP client
-            </summary>
-            <param name="enable">boolean: true = enable DHCP client, false = disable DHCP client</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_SetEnableDhcpServer(System.Boolean)">
-            <summary>
-            Enable or disable DHCP server
-            </summary>
-            <param name="enable">boolean: true = enable DHCP server, false = disable DHCP server</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_SetIpAddress(System.String)">
-            <summary>
-            Set the IP address of the device
+            Sets the IP address of the device.
             </summary>
             <param name="address">IP address as string</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_SetProxyServer(System.String)">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_GetSubnetMask">
             <summary>
-            Set the proxy server of the device
-            </summary>
-            <param name="proxyServer">Proxy Server Setting as string</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_SetSubnetMask(System.String)">
-            <summary>
-            Set the subnet mask of the device
-            </summary>
-            <param name="netmask">Subnet mask as string</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_SetWifiMode(System.Int32)">
-            <summary>
-            Change the operation mode of the wifi adapter
-            </summary>
-            <param name="mode">0: Access point, 1: Wifi client</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_SetWifiPassphrase(System.String)">
-            <summary>
-            Change the passphrase of the network hosted (mode: Access point) or connected to (mode: client)
-            </summary>
-            <param name="psk">Pre-shared key</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_SetWifiSSID(System.String)">
-            <summary>
-            Change the SSID of the network hosted (mode: Access point) or connected to (mode: client)
-            </summary>
-            <param name="ssid"></param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Network_Verify">
-            <summary>
-            Verify that temporary IP configuration is correct
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.RebootSystem">
-            <summary>
-            Reboot the system
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.SetDeviceName(System.String)">
-            <summary>
-            Set custom name for the device
-            </summary>
-            <param name="name">string: device name</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.SetTime(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Set system time manually
-            </summary>
-            <param name="day">integer: Day (1-31)</param>
-            <param name="month">integer: Day (1-12)</param>
-            <param name="year">integer: Day (eg. 2021)</param>
-            <param name="hour">integer: Day (0-23)</param>
-            <param name="minute">integer: Day (0-59)</param>
-            <param name="second">integer: Day (0-59)</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.SoftReset">
-            <summary>
-            Performs a soft reset (Reset without deleting the network settings). Please reboot the device directly afterwards.
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.UpdateTimeFromInternet">
-            <summary>
-            Update system time by querying attocube.com
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Update_GetLicenseUpdateProgress">
-            <summary>
-            Get the progress of running license update
+            Gets the subnet mask of the device.
             </summary>
             <returns>
-            value_int1: int: progress in percent
+              [0] value_Subnet: Subnet mask as string
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Update_GetSwUpdateProgress">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_SetSubnetMask(System.String)">
             <summary>
-            Get the progress of running update
+            Sets the subnet mask of the device.
+            </summary>
+            <param name="netmask">subnet mask as string</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_GetDefaultGateway">
+            <summary>
+            Gets the default gateway of the device.
             </summary>
             <returns>
-            value_int1: int: progress in percent
+              [0] value_Default: Default gateway
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Update_LicenseUpdateBase64">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_SetDefaultGateway(System.String)">
             <summary>
-            Execute the license update with base64 file uploaded. After execution, a manual reboot is nevessary.
+            Sets the default gateway of the device.
+            </summary>
+            <param name="gateway">Default gateway as string</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_GetDnsResolver(System.Int32)">
+            <summary>
+            Gets the DNS resolver.
+            </summary>
+            <param name="priority">priority of DNS resolver (0 = default, 1 = backup)</param>
+            <returns>
+              [0] value_resolver: resolver IP address of DNS resolver
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_SetDnsResolver(System.Int32,System.String)">
+            <summary>
+            Sets the DNS resolver.
+            </summary>
+            <param name="priority">priority of DNS resolver (0 = default, 1 = backup)</param>
+            <param name="resolver">IP address of DNS resolver</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_GetProxyServer">
+            <summary>
+            Gets the proxy settings of the device.
+            </summary>
+            <returns>
+              [0] value_proxyServer: proxyServer proxy server setting, empty for no proxy
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_SetProxyServer(System.String)">
+            <summary>
+            Sets the proxy server of the device.
+            </summary>
+            <param name="proxyServer">proxy server setting</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_GetEnableDhcpServer">
+            <summary>
+            Gets the status of DHCP server.
+            </summary>
+            <returns>
+              [0] value_enabled: enabled true = enabled, false = disabled
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_SetEnableDhcpServer(System.Boolean)">
+            <summary>
+            Enables or disables DHCP server.
+            </summary>
+            <param name="enable">true = enable, false = disable</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_GetEnableDhcpClient">
+            <summary>
+            Gets the status of DHCP client.
+            </summary>
+            <returns>
+              [0] value_enabled: enabled true = enabled, false = disabled
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_SetEnableDhcpClient(System.Boolean)">
+            <summary>
+            Enables or disables DHCP client.
+            </summary>
+            <param name="enable">true = enable, false = disable</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_Apply">
+            <summary>
+            Applies the temporary IP configuration and loads it.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Update_SoftwareUpdateBase64">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_Verify">
             <summary>
-            Execute the update with base64 file uploaded. After completion, a manual reboot is necessary.
+            Verifies if the temporary IP configuration is correct.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Update_UploadLicenseBase64(System.Int32,System.String)">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_Discard">
             <summary>
-            Upload new license file in format base 64
+            Discards the temporary IP configuration.
             </summary>
-            <param name="offset">int: offset of the data</param>
-            <param name="b64Data">string: base64 data</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.IDS.AttocubeIDS.Update_UploadSoftwareImageBase64(System.Int32,System.String)">
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_GetWifiPresent">
             <summary>
-            Upload new firmware image in format base 64
+            Checks if a WiFi interface is present.
             </summary>
-            <param name="offset">int: offset of the data</param>
-            <param name="b64Data">string: base64 data</param>
+            <returns>
+              [0] value_present: present true if the interface is present, else false
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_SetWifiMode(System.Int32)">
+            <summary>
+            Changes the operation mode of the WiFi adapter.
+            </summary>
+            <param name="mode">0 = access point; 1 = WiFi client</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_GetWifiMode">
+            <summary>
+            Gets the operation mode of the WiFi adapter.
+            </summary>
+            <returns>
+              [0] value_mode: mode 0 = access point; 1 = WiFi client
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_SetWifiSSID(System.String)">
+            <summary>
+            Changes the SSID of the network hosted (mode: access point) or connected to (mode: client).
+            </summary>
+            <param name="SSID">SSID string</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_GetWifiSSID">
+            <summary>
+            Gets the SSID of the network hosted (mode: access point) or connected to (mode: client).
+            </summary>
+            <returns>
+              [0] value_SSID: SSID SSID string
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_SetWifiPassphrase(System.String)">
+            <summary>
+            Changes the passphrase of the network hosted (mode: access point) or connected to (mode: client).
+            </summary>
+            <param name="psk">pre-shared key</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_GetWifiPassphrase">
+            <summary>
+            Gets the passphrase of the network hosted (mode: Access point) or connected to (mode: client).
+            </summary>
+            <returns>
+              [0] value_psk: psk pre-shared key
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.Network_ConfigureWifi(System.Int32,System.String,System.String)">
+            <summary>
+            Changes the WiFi configuration and applies it.
+            </summary>
+            <param name="mode">0 = access point; 1: WiFi client</param>
+            <param name="SSID">SSID string</param>
+            <param name="psk">pre-shared key</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.SetDeviceName(System.String)">
+            <summary>
+            Sets custom name for the device.
+            </summary>
+            <param name="name">device name</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.GetDeviceName">
+            <summary>
+            Gets the current device name.
+            </summary>
+            <returns>
+              [0] value_name: name current device name
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.RebootSystem">
+            <summary>
+            Reboots the device.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.FactoryReset">
+            <summary>
+            Turns on the factory reset flag.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.SoftReset">
+            <summary>
+            Performs a soft reset (factory reset without deleting the network settings).
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.ErrorNumberToString(System.Int32,System.Int32)">
+            <summary>
+            Gets a description of an error code.
+            </summary>
+            <param name="language">integer: Language code 0 for the error name, 1 for a more user-friendly error message</param>
+            <param name="errNbr">error code to translate</param>
+            <returns>
+              [0] value_message: message error description
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.ErrorNumberToRecommendation(System.Int32,System.Int32)">
+            <summary>
+            Gets a recommendation for the error code.
+            </summary>
+            <param name="language">integer: Language code</param>
+            <param name="errNbr">error code to translate</param>
+            <returns>
+              [0] value_string: string: error recommendation (currently returning an int = 0 until we have recommendations)
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.GetFirmwareVersion">
+            <summary>
+            Gets the firmware version of the device.
+            </summary>
+            <returns>
+              [0] value_FWversion: FWversion firmware version
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.GetHostname">
+            <summary>
+            Returns the device hostname.
+            </summary>
+            <returns>
+              [0] value_name: name hostname
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.GetMacAddress">
+            <summary>
+            Gets the mac address of the device.
+            </summary>
+            <returns>
+              [0] value_mac: mac mac address
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.GetSerialNumber">
+            <summary>
+            Gets the serial number of the device.
+            </summary>
+            <returns>
+              [0] value_SN: SN serial number
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.GetFluxCode">
+            <summary>
+            Gets the flux code of the system.
+            </summary>
+            <returns>
+              [0] value_code: code flux code
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.UpdateTimeFromInternet">
+            <summary>
+            Updates system time by querying attocube.com.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.SEN_1_0_0.AttocubeSEN.SetTime(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets system time manually.
+            </summary>
+            <param name="day">value from 1 to 31</param>
+            <param name="month">value from 1 to 12</param>
+            <param name="year">value (e.g. 2021)</param>
+            <param name="hour">value from 0 to 23</param>
+            <param name="minute">value from 0 to 59</param>
+            <param name="second">value from 0 to 59</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
     </members>
