@@ -1,0 +1,48 @@
+# LabVIEW build and cache files
+*.aliases
+*.lvlps
+*.lvlibp
+*.lvclass
+*.lvproj.bak
+*.lvproj.local
+*.lvproj.lvclass
+*.lvproj.lvlib
+*.lvproj.lvlibp
+*.lvproj.lvproj
+*.lvproj.lvlibp
+*.lvproj.lvclass
+*.lvproj.cache
+*.lvproj.autosave
+*.lvproj.backup
+*.lvproj.user
+
+# Compiled code and object cache
+*.compiled
+*.obj
+*.cache
+*.mnu
+*.ctt
+*.ctt.bak
+
+# User-specific settings
+*.lvuser
+*.lvsettings
+*.lvconfig
+*.lvworkspace
+*.lvworkspace.bak
+
+# Temporary and autosave files
+*.tmp
+*.autosave
+*.bak
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build output folders
+build/
+dist/
+output/
