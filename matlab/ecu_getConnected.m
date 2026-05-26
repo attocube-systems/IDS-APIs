@@ -1,5 +1,5 @@
 function [errNo, connected] = ecu_getConnected(tcp)
-% brief : Reads out whether the ECU interface is physically connected or not. Checking if the ECU is connected can only be done on an enabled ECU interface.
+% brief : Reads out whether the ECU interface is physically connected or not.
 %
 % param[in] tcp: TCP/IP connection ID
 % param[out]
@@ -7,7 +7,7 @@ function [errNo, connected] = ecu_getConnected(tcp)
 %           connected: true = connected; false = disconnected
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.ecu.getConnected", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.ecu.getConnected", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

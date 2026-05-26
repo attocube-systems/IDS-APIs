@@ -2,12 +2,12 @@ function [value_errNo] = system_network_setEnableDhcpClient(tcp, enable)
 % brief : Enables or disables DHCP client.
 %
 % param[in] tcp: TCP/IP connection ID
-%           enable: true = enable, false = disable
+%           enable: true = enable; false = disable
 % param[out]
 %           value_errNo: errNo error code, if there was an error, otherwise 0 for ok
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.setEnableDhcpClient", "params": [%i], "id": 1, "api": 2}', enable);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.network.setEnableDhcpClient", "params": [%i], "id": 1, "api": 2}', enable);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

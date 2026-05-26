@@ -7,7 +7,7 @@ function [value_errNo, value_psk] = system_network_getWifiPassphrase(tcp)
 %           value_psk: psk pre-shared key
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.getWifiPassphrase", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.network.getWifiPassphrase", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

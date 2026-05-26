@@ -7,7 +7,7 @@ function [value_errNo, value_type] = system_getDeviceType(tcp)
 %           value_type: type type of the device (e.g. "IDS3010")
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.system.getDeviceType", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.system.getDeviceType", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

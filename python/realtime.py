@@ -405,6 +405,39 @@ class Realtime:
         self.device.handleError(response)
         return response[1]                
 
+    def enableRtAxis(self, axis, enabled):
+        # type: (int, bool) -> ()
+        """
+        Enables the real-time output of the specific measurement axis.
+
+        Parameters:
+            axis: [0|1|2]
+            enabled: true = enable; false = disable
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".enableRtAxis", [axis, enabled, ])
+        self.device.handleError(response)
+        return                 
+
+    def getRtAxisEnabled(self, axis):
+        # type: (int) -> (bool)
+        """
+        Checks if the real-time output of the specific measurement axis is enabled.
+
+        Parameters:
+            axis: [0|1|2]
+                    
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_enabled: enabled true = enabled; false = disabled
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getRtAxisEnabled", [axis, ])
+        self.device.handleError(response)
+        return response[1]                
+
     def apply(self):
         # type: () -> ()
         """
@@ -458,4 +491,32 @@ class Realtime:
         response = self.device.request(self.interface_name + ".getTestChannelEnabled")
         self.device.handleError(response)
         return response[1]                
+
+    def getInvertedErrorSignal(self):
+        # type: () -> (bool)
+        """
+        Checks if the error signal is inverted.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_inverted: inverted true = inverted; false = non-inverted
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getInvertedErrorSignal")
+        self.device.handleError(response)
+        return response[1]                
+
+    def setInvertedErrorSignal(self, inverted):
+        # type: (int) -> ()
+        """
+        Inverts the error signal.
+
+        Parameters:
+            inverted: true = inverted; false = non-inverted
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".setInvertedErrorSignal", [inverted, ])
+        self.device.handleError(response)
+        return                 
 

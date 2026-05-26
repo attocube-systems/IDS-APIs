@@ -7,7 +7,7 @@ function [value_errNo, value_mode] = system_getInitMode(tcp)
 %           value_mode: mode 0 = High Accuracy Initialization; 1 = Quick Initialization (default: 0)
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.system.getInitMode", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.system.getInitMode", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

@@ -7,7 +7,7 @@ function [errNo, pressure] = ecu_getPressureInHPa(tcp)
 %           pressure: value in hPa
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.ecu.getPressureInHPa", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.ecu.getPressureInHPa", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

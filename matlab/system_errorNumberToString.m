@@ -9,7 +9,7 @@ function [value_errNo, value_message] = system_errorNumberToString(tcp, language
 %           value_message: message error description
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.errorNumberToString", "params": [%i, %i], "id": 1, "api": 2}', language, errNbr);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.system_service.errorNumberToString", "params": [%i, %i], "id": 1, "api": 2}', language, errNbr);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

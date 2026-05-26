@@ -1,15 +1,15 @@
 import ctypes
 
-from .dll_wrapper import _GetLastStreamError, \
-                         _OpenStream, \
+from .dll_wrapper import _OpenStream, \
                          _CloseStream, \
                          _ReadStream, \
                          _DecodeStream, \
                          _StartStreamRecording, \
-                         _StopStreamRecording
+                         _StopStreamRecording, \
+                         _GetStreamInfo
 
 class Stream():
-    def __init__(self, deviceAddress, isMaster, intervalInMicroseconds, filePath=None, axis0=False, axis1=False, axis2=False):
+    def __init__(self, deviceAddress, isMaster, intervalInMicroseconds, filePath=None, axis0=False, axis1=False, axis2=False, timeoutInSeconds=10):
         """
         Stream class handling the connection between SEN and Python
 
@@ -37,6 +37,8 @@ class Stream():
         self.isMaster = isMaster
         self.intervalInMicroseconds = intervalInMicroseconds
         self.filePath = filePath
+        self.packetSize = 0
+        self.timeoutInSeconds = timeoutInSeconds
 
         self.recording = False
 
@@ -60,9 +62,10 @@ class Stream():
         if self.connected and self.handle != 0:
             self.close()
 
-    @property
-    def lastError(self):
-        return _GetLastStreamError()
+    # --function doesn't exist in new api--
+    # @property
+    # def lastError(self):
+    #     return _GetLastStreamError()
 
     def open(self):
         """
@@ -74,15 +77,15 @@ class Stream():
         handle = _OpenStream(ctypes.c_char_p(self.deviceAddress.encode("utf-8")),
                              ctypes.c_bool(self.isMaster),
                              ctypes.c_int(self.intervalInMicroseconds),
-                             ctypes.c_uint8(self.channelMask))
+                             ctypes.c_uint8(self.channelMask), ctypes.c_int(self.timeoutInSeconds))
         if handle != 0 and handle is not None:
             self.connected = True
             self.handle = handle
-
+            self.__getStreamInfo()
             if self.filePath is not None:
                 self.startRecording(self.filePath)
             return
-        raise Exception("Cannot connect to SEN streaming. Maybe, the measurement is not running on all requested axes or Streaming is not running on your SEN.")
+        raise Exception("Cannot connect to SEN streaming. Maybe, the measurement is not running on all requested axes or Streaming is not running on your SEN or Streaming is already running via a different process")
 
     def close(self):
         """
@@ -144,6 +147,7 @@ class Stream():
         err0 = (ctypes.c_uint8 * len(buffer))()
         err1 = (ctypes.c_uint8 * len(buffer))()
         err2 = (ctypes.c_uint8 * len(buffer))()
+        ecuData = (ctypes.c_float * 4)()
         decodedSampleCount = (ctypes.c_int * 1)()
 
         decodedBytes = _DecodeStream(ctypes.c_void_p(self.handle),
@@ -155,6 +159,7 @@ class Stream():
                                     err0,
                                     err1,
                                     err2,
+                                    ecuData,
                                     ctypes.c_int(ctypes.sizeof(axis0)*3),
                                     decodedSampleCount)
         
@@ -165,6 +170,7 @@ class Stream():
             print("\t- Measurement is not running on all selected axes")
             print("\t- Error on at least one of your selected axes")
             print("\t- Buffer too small")
+            print("\t- Incorrect number of Buffers")
 
         axis0 = axis0[:decodedSamples]
         axis1 = axis1[:decodedSamples]
@@ -188,7 +194,7 @@ class Stream():
             axis2 = []
             err2 = []
 
-        return decodedBytes, axis0, axis1, axis2, err0, err1, err2
+        return decodedBytes,axis0, axis1, axis2, err0, err1, err2,ecuData[0],ecuData[1],ecuData[2],ecuData[3]
 
     def read(self, bufferSize):
         """
@@ -210,12 +216,13 @@ class Stream():
         axis2 : list
             List containing positions of axis 2 in pm
         """
-        # _packetSize = _GetPacketSize(ctypes.c_void_p(self.handle))
-        # if _packetSize <= 0:
-        #     raise Exception("Stream is not opened")
+        if self.packetSize <= 0:
+            raise Exception("Stream is not opened")
 
-        # # For direct decoding, appropriate buffer sizes are necessary!
-        # bufferSize = (bufferSize // _packetSize) * _packetSize
+        # For direct decoding, appropriate buffer sizes are necessary!
+        if bufferSize < self.packetSize:
+            raise Exception(f"Buffer size too small! Must be at least {self.packetSize} bytes")
+        bufferSize = (bufferSize // self.packetSize) * self.packetSize
 
         buffer = self.readRaw(bufferSize)
         return self.decodeBuffer(buffer)
@@ -243,3 +250,13 @@ class Stream():
         self.recording = False
         if not success:
             raise Exception("Cannot stop recording")
+
+    # Private method to get stream info after opening the stream
+    def __getStreamInfo(self):
+        if not self.connected or self.handle == 0:
+            raise Exception("Stream not connected")
+        packetSize = ctypes.c_int()
+        samplesPerPacket = ctypes.c_int()
+        _GetStreamInfo(ctypes.c_void_p(self.handle), ctypes.byref(packetSize), ctypes.byref(samplesPerPacket))
+        self.packetSize = packetSize.value
+        self.samplesPerPacket = samplesPerPacket.value

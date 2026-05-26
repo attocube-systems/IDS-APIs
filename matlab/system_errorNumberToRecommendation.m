@@ -9,7 +9,7 @@ function [value_errNo, value_string] = system_errorNumberToRecommendation(tcp, l
 %           value_string: string: error recommendation (currently returning an int = 0 until we have recommendations)
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.errorNumberToRecommendation", "params": [%i, %i], "id": 1, "api": 2}', language, errNbr);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.system_service.errorNumberToRecommendation", "params": [%i, %i], "id": 1, "api": 2}', language, errNbr);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

@@ -26,7 +26,7 @@ class Ecu:
     def getConnected(self):
         # type: () -> (bool)
         """
-        Reads out whether the ECU interface is physically connected or not. Checking if the ECU is connected can only be done on an enabled ECU interface.
+        Reads out whether the ECU interface is physically connected or not.
         Returns:
             errNo: error code, if there was an error, otherwise 0 for ok
             connected: true = connected; false = disconnected

@@ -7,7 +7,7 @@ function [value_errNo, value_rtOutMode] = realtime_getRtOutMode(tcp)
 %           value_rtOutMode: rtOutMode 0 = HSSL (LVTTL), 1 = HSSL (LVDS), 2 = AquadB (LVTTL),/n3 = AquadB (LVDS), 4 = Sin/Cos (LVTTL error signal),/n5 = Sin/Cos (LVDS error signal), 6 = Linear (LVTTL error signal), 7 = Linear (LVDS error signal),/n8 = BiSS-C, 9 = Deactivated
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.realtime.getRtOutMode", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.realtime.getRtOutMode", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

@@ -7,7 +7,7 @@ function [value_errNo, value_SN] = system_getSerialNumber(tcp)
 %           value_SN: SN serial number
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.getSerialNumber", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.system_service.getSerialNumber", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

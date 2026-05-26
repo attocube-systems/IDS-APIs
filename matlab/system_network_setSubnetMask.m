@@ -7,7 +7,7 @@ function [value_errNo] = system_network_setSubnetMask(tcp, netmask)
 %           value_errNo: errNo error code, if there was an error, otherwise 0 for ok
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.setSubnetMask", "params": [%s], "id": 1, "api": 2}', netmask);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.network.setSubnetMask", "params": [%s], "id": 1, "api": 2}', netmask);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

@@ -7,7 +7,7 @@ function [value_errNo] = system_resetAxis(tcp, axis)
 %           value_errNo: errNo error code, if there was an error, otherwise 0 for ok
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.system.resetAxis", "params": [%i], "id": 1, "api": 2}', axis);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.system.resetAxis", "params": [%i], "id": 1, "api": 2}', axis);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

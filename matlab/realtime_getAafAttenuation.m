@@ -7,7 +7,7 @@ function [value_errNo, value_attenuation] = realtime_getAafAttenuation(tcp)
 %           value_attenuation: attenuation value from 3 dB to 30 dB (default: 15 dB)
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.realtime.getAafAttenuation", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.realtime.getAafAttenuation", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

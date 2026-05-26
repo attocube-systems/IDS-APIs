@@ -7,7 +7,7 @@ function [value_errNo, value_mode] = realtime_getRtDistanceMode(tcp)
 %           value_mode: mode 1 = Displacement (all modes)/n2 = Absolute Distance (HSSL mode and BiSS C mode)/n3 = Vibrometry (Linear mode only)
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.realtime.getRtDistanceMode", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.realtime.getRtDistanceMode", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

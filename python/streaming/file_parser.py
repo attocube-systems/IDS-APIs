@@ -37,14 +37,14 @@ def parseHeader(file):
     return headerSize, headerParams
 
 def decodeFile(file, headerParams):
-    PACKET_BUFFER_LEN = 1024
+    PACKET_BUFFER_LEN = 1
 
     result = []
 
     packetSize = ctypes.sizeof(ctypes.c_int64) \
                     + ((ctypes.sizeof(ctypes.c_int64) \
                         + (ctypes.sizeof(ctypes.c_int32) * (headerParams["perPacketSampleCount"] - 1))
-                    ) * len(headerParams["channelIds"]))
+                    ) * len(headerParams["channelIds"])) + (4 * ctypes.sizeof(ctypes.c_int64))
     bufferSize = packetSize * PACKET_BUFFER_LEN
 
     buffer_c = bytearray()
@@ -74,6 +74,7 @@ def decodeFile(file, headerParams):
         ]
         _dest = (ctypes.POINTER(ctypes.c_int64)*3)(*[ctypes.cast(ax, ctypes.POINTER(ctypes.c_int64)) for ax in _axis])
         _dstErr = (ctypes.POINTER(ctypes.c_uint8)*3)(*[ctypes.cast(ex, ctypes.POINTER(ctypes.c_uint8)) for ex in _axisErr])  
+        _ecuData = (ctypes.c_float * 4)()
 
         _DecodePackets(_buffer,
                        ctypes.c_int(packetCount),
@@ -81,7 +82,8 @@ def decodeFile(file, headerParams):
                        ctypes.c_int(len(headerParams["channelIds"])),
                        _offsets,
                        *_dest,
-                       *_dstErr
+                       *_dstErr,
+                       _ecuData
                        )
 
         sampleCountInBuffer = packetCount * headerParams["perPacketSampleCount"]
@@ -91,9 +93,10 @@ def decodeFile(file, headerParams):
             elem = [time, None, None, None]
             err = [None, None, None]
             for i_src, i_dst in enumerate(headerParams["channelIds"]):
-                elem[i_dst+1] = _axis[i_src][j] - int(headerParams["channels"][i_src+1]["offs"])
-                err[i_dst] = _axisErr[i_src][j] - int(headerParams["channels"][i_src+1]["offs"])
+                elem[i_dst+1] = _axis[i_src][j] - int(headerParams["channels"][i_src+2]["offs"])
+                err[i_dst] = _axisErr[i_src][j] - int(headerParams["channels"][i_src+2]["offs"])
             elem.extend(err)
+            elem.extend(list(_ecuData))
             result.append(tuple(elem))
             sourceSamplePos += 1
 

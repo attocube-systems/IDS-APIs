@@ -7,7 +7,7 @@ function [value_errNo, value_gap] = realtime_getPeriodHsslGap(tcp)
 %           value_gap: gap value from 1 to 255
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.realtime.getPeriodHsslGap", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.realtime.getPeriodHsslGap", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

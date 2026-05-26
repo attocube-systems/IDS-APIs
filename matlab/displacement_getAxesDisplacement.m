@@ -9,7 +9,7 @@ function [value_warningNo, value_displacement1, value_displacement2, value_displ
 %           value_displacement3: displacement2 displacement of the axis 2 in pm
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.displacement.getAxesDisplacement", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.displacement.getAxesDisplacement", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

@@ -7,7 +7,7 @@ function [value_errNo, value_window] = realtime_getAafWindow(tcp)
 %           value_window: window 0 = Rectangular,/n1 = Cosine,/n2 = Cosine^2,/n3 = Hamming,/n4 = Raised Cosine (default)
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.realtime.getAafWindow", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.realtime.getAafWindow", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

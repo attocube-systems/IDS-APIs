@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <inttypes.h>
 //#include <unistd.h>
-#include "SEN.NativeC.h"
+#include "SEN.Stream.h"
 #include <corecrt_memcpy_s.h>
 
 /*H**********************************************************************
@@ -20,11 +20,20 @@
 *           Copyright attocube systems GmbH, 2018.  All rights reserved.
 *
 *H*/
+typedef struct {
+    int size;
+    unsigned char* data;
+}Buffer;
+
+typedef struct {
+    int packetSize;
+    int samplesPerPacket;
+}StreamInfo;
 
 int main()
 {
-    // the buffer for raw stream data
-    unsigned char buffer[16 << 10]; // 16k byte
+    StreamInfo streamInfo = { 0 };
+
     int bytesInBuffer = 0;
 
     // the number of samples we want to receive
@@ -38,13 +47,20 @@ int main()
     const int sampleBuffersSize = samplesToReceive + 1022;
     int64_t channelX[sampleBuffersSize];
     int64_t channelY[sampleBuffersSize];
-    int64_t channelZ[sampleBuffersSize];   
-    
+    int64_t channelZ[sampleBuffersSize];
+
     uint8_t errX[sampleBuffersSize];
     uint8_t errY[sampleBuffersSize];
     uint8_t errZ[sampleBuffersSize];
 
-    void* stream = OpenStream("192.168.1.1", true, 10, 1); //samplerate 100kHz and axis 1
+    void* stream = OpenStream("192.168.1.1", true, 10, 1, 10); //samplerate 100kHz and axis 1
+    GetStreamInfo(stream, &streamInfo.packetSize, &streamInfo.samplesPerPacket);
+
+    // the buffer for raw stream data
+    Buffer buffer = {
+        .size = streamInfo.packetSize,
+        .data = (unsigned char*)malloc(streamInfo.packetSize)
+    };
 
     // record the streaming into a .aws file that can be decoded with WAVEExport
     StartStreamRecording(stream, "test.aws");
@@ -52,7 +68,7 @@ int main()
     // retrieve values continously until more that 5000 samples were decoded (more samples were streamed)
     for (int samplesInBuffers = 0; samplesInBuffers < samplesToReceive;)
     {
-        bytesInBuffer += ReadStream(stream, buffer + bytesInBuffer, sizeof(buffer) - bytesInBuffer);
+        bytesInBuffer = ReadStream(stream, buffer.data, buffer.size);
 
         int64_t* axes[] =
         {
@@ -66,16 +82,13 @@ int main()
                errY + samplesInBuffers,
                errZ + samplesInBuffers
         };
-
+        float ecuBuffer[4];
         int decodedSamplesCount;
 
-		//passing nullptr for unwanted buffers, if more than 1 axis is streamed replace the respective nullptr with the necessary buffers  
-        int decodedBytes = DecodeStream(stream, buffer, bytesInBuffer, axes[0], nullptr, nullptr,
-            errorFlags[0], nullptr, nullptr, sampleBuffersSize - samplesInBuffers, &decodedSamplesCount);
-         
-        bytesInBuffer -= decodedBytes;
+        //passing nullptr for unwanted buffers, if more than 1 axis is streamed replace the respective nullptr with the necessary buffers  
+        int decodedBytes = DecodeStream(stream, buffer.data, bytesInBuffer, axes[0], nullptr, nullptr,
+            errorFlags[0], nullptr, nullptr, ecuBuffer, sampleBuffersSize - samplesInBuffers, &decodedSamplesCount);
         samplesInBuffers += decodedSamplesCount;
-        memmove_s(buffer, sizeof(buffer), buffer + decodedBytes, bytesInBuffer);
     }
 
     StopStreamRecording(stream);
@@ -91,7 +104,5 @@ int main()
         fprintf(pFile, "%I64d (error flag: %u)\n", channelX[i], errX[i]);
     }
     fclose(pFile);
-
-
 }
 

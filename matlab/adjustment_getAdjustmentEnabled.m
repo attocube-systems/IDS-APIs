@@ -7,7 +7,7 @@ function [value_errNo, value_enabled] = adjustment_getAdjustmentEnabled(tcp)
 %           value_enabled: enabled true = enabled; false = disabled
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.adjustment.getAdjustmentEnabled", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.adjustment.getAdjustmentEnabled", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

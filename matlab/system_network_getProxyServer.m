@@ -7,7 +7,7 @@ function [value_errNo, value_proxyServer] = system_network_getProxyServer(tcp)
 %           value_proxyServer: proxyServer proxy server setting, empty for no proxy
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.getProxyServer", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.network.getProxyServer", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

@@ -8,7 +8,7 @@ function [errNo, mode] = ecu_getRefractiveIndexCompensationMode(tcp, axis)
 %           mode: 0 = direct ECU mode 1 = uses refractive index calculated from the manually set values2 = uses manually set refrative index
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.ecu.getRefractiveIndexCompensationMode", "params": [%i], "id": 1, "api": 2}', axis);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.ecu.getRefractiveIndexCompensationMode", "params": [%i], "id": 1, "api": 2}', axis);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

@@ -7,7 +7,7 @@ function [value_errNo, value_resolution] = realtime_getResolutionHsslHigh(tcp)
 %           value_resolution: resolution value from 1 to 47
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.realtime.getResolutionHsslHigh", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.realtime.getResolutionHsslHigh", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

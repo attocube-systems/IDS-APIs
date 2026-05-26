@@ -51,7 +51,7 @@ class Network:
         Gets the subnet mask of the device.
         Returns:
             value_errNo: errNo error code, if there was an error, otherwise 0 for ok
-            value_Subnet: Subnet mask as string
+            value_netmask: netmask subnet mask as string
                     
         """
         
@@ -79,7 +79,7 @@ class Network:
         Gets the default gateway of the device.
         Returns:
             value_errNo: errNo error code, if there was an error, otherwise 0 for ok
-            value_Default: Default gateway
+            value_gateway: gateway default gateway as string
                     
         """
         
@@ -93,7 +93,7 @@ class Network:
         Sets the default gateway of the device.
 
         Parameters:
-            gateway: Default gateway as string
+            gateway: default gateway as string
                     
         """
         
@@ -107,7 +107,7 @@ class Network:
         Gets the DNS resolver.
 
         Parameters:
-            priority: priority of DNS resolver (0 = default, 1 = backup)
+            priority: priority of DNS resolver (0 = default; 1 = backup)
                     
         Returns:
             value_errNo: errNo error code, if there was an error, otherwise 0 for ok
@@ -125,7 +125,7 @@ class Network:
         Sets the DNS resolver.
 
         Parameters:
-            priority: priority of DNS resolver (0 = default, 1 = backup)
+            priority: priority of DNS resolver (0 = default; 1 = backup)
             resolver: IP address of DNS resolver
                     
         """
@@ -168,7 +168,7 @@ class Network:
         Gets the status of DHCP server.
         Returns:
             value_errNo: errNo error code, if there was an error, otherwise 0 for ok
-            value_enabled: enabled true = enabled, false = disabled
+            value_enabled: enabled true = enabled; false = disabled
                     
         """
         
@@ -182,7 +182,7 @@ class Network:
         Enables or disables DHCP server.
 
         Parameters:
-            enable: true = enable, false = disable
+            enable: true = enable; false = disable
                     
         """
         
@@ -196,7 +196,7 @@ class Network:
         Gets the status of DHCP client.
         Returns:
             value_errNo: errNo error code, if there was an error, otherwise 0 for ok
-            value_enabled: enabled true = enabled, false = disabled
+            value_enabled: enabled true = enabled; false = disabled
                     
         """
         
@@ -210,7 +210,7 @@ class Network:
         Enables or disables DHCP client.
 
         Parameters:
-            enable: true = enable, false = disable
+            enable: true = enable; false = disable
                     
         """
         
@@ -352,7 +352,7 @@ class Network:
         Changes the WiFi configuration and applies it.
 
         Parameters:
-            mode: 0 = access point; 1: WiFi client
+            mode: 0 = access point; 1 = WiFi client
             SSID: SSID string
             psk: pre-shared key
                     

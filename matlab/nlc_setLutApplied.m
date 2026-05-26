@@ -8,7 +8,7 @@ function [errNo] = nlc_setLutApplied(tcp, axis, apply)
 %           errNo: error code, if there was an error, otherwise 0 for ok
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.nlc.setLutApplied", "params": [%i, %i], "id": 1, "api": 2}', axis, apply);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.nlc.setLutApplied", "params": [%i, %i], "id": 1, "api": 2}', axis, apply);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

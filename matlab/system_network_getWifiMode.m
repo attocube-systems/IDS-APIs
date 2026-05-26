@@ -7,7 +7,7 @@ function [value_errNo, value_mode] = system_network_getWifiMode(tcp)
 %           value_mode: mode 0 = access point; 1 = WiFi client
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.getWifiMode", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.network.getWifiMode", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

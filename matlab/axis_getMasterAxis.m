@@ -1,5 +1,5 @@
 function [value_errNo, value_axis] = axis_getMasterAxis(tcp)
-% brief : Returns the master axis (for more information, please refer to the device user manual).
+% brief : Returns the master axis (for more information, please refer to the IDS User Manual).
 %
 % param[in] tcp: TCP/IP connection ID
 % param[out]
@@ -7,7 +7,7 @@ function [value_errNo, value_axis] = axis_getMasterAxis(tcp)
 %           value_axis: axis [0|1|2]
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.axis.getMasterAxis", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.axis.getMasterAxis", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

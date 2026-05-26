@@ -12,6 +12,7 @@ The DLL provides the following core functions:
 	DecodePackets
 	StartStreamRecording
 	StopStreamRecording
+	GetStreamInfo
 
 The basic steps required to get the dll running with your C application
 Step 1: Include the DLL's Header

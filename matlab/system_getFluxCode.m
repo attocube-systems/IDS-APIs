@@ -7,7 +7,7 @@ function [value_errNo, value_code] = system_getFluxCode(tcp)
 %           value_code: code flux code
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.getFluxCode", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.system_service.getFluxCode", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

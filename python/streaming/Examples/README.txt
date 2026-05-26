@@ -10,9 +10,9 @@ The Python wrapper contains modules to call and use functions from the SEN.Strea
 Here's what to know when using SEN.Stream.dll through the python api wrapper
 
 Main modules:
-SEN.stream - the SEN.stream python module provides the interface to the core streaming functions of the SEN.Streaming.dll. It loads the DLL, sets up correct function signatures, wraps and exposes the C functions as simpler Python-callable methods.
+stream class - the python stream class from the stream.py file provides the interface to the core streaming functions of the SEN.Streaming.dll. It loads the DLL, sets up correct function signatures, wraps and exposes the C functions as simpler Python-callable methods.
 
-	available methods in the SEN.stream module: 
+	available methods of the stream class: 
 
 		open:  Open Stream connection to device
 		close: Close stream and stop recording if necessary
@@ -28,10 +28,10 @@ SEN.stream - the SEN.stream python module provides the interface to the core str
 		>> Stream("192.168.1.1", true, 10, axis0=true, axis1=true, axis2=true) 
 
 
-SEN.streaming - using python's multiprocessiong module, the SEN.streaming module contains functions that allows you to stream and record stream in the background generating the binary .aws stream file that can be exported to csv using the 
-WaveExport or decoded & loaded into the code for further use through the streaming.loadFile() function.
+streaming class - using python's multiprocessiong module, the streaming class in the streaming.py file contains functions that allows you to stream and record stream in the background generating the binary .aws stream file that can be exported to csv using the 
+WaveExport or decoded & loaded into the code for further use through the streaming.loadFile() function. It accessible via the Device class in SEN.py.
 
-	available methods in the SEN.streaming module:
+	available methods in the streaming class:
 		open: Open Stream connection to device
 		loadFile: Load decoded content of recorded stream file
 		startBackgroundStreaming: Starts position streaming to file in background

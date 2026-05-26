@@ -7,7 +7,7 @@ function [value_errNo, value_period] = realtime_getPeriodHsslClk(tcp)
 %           value_period: period value from 40 ns to 10200 ns
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.realtime.getPeriodHsslClk", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.realtime.getPeriodHsslClk", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

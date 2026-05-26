@@ -7,7 +7,7 @@ function [value_errNo, value_progress] = system_update_getLicenseUpdateProgress(
 %           value_progress: progress value in %
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.update.getLicenseUpdateProgress", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.update.getLicenseUpdateProgress", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

@@ -7,7 +7,7 @@ function [value_errNo, value_averageN] = displacement_getAverageN(tcp)
 %           value_averageN: averageN value from 0 to 24
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.displacement.getAverageN", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.displacement.getAverageN", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

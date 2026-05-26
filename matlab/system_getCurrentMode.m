@@ -7,7 +7,7 @@ function [value_errNo, value_mode] = system_getCurrentMode(tcp)
 %           value_mode: mode "system idle", "measurement starting", "measurement running", "measurement restarting",/n"optics alignment starting", "optics alignment running", "test channels enabled"
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.system.getCurrentMode", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.system.getCurrentMode", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

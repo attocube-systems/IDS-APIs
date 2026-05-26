@@ -8,7 +8,7 @@ function [errNo] = manual_setHumidityInPercent(tcp, axis, humidity)
 %           errNo: error code, if there was an error, otherwise 0 for ok
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.manual.setHumidityInPercent", "params": [%i, %d], "id": 1, "api": 2}', axis, humidity);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.manual.setHumidityInPercent", "params": [%i, %d], "id": 1, "api": 2}', axis, humidity);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

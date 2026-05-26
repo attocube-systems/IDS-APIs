@@ -21,9 +21,9 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    filename = 'Testing' # name of the .aws file created
-    
-    sen = SEN.Device('192.168.1.1') #IP of device
+    filename = 'StreamTest' # name of the .aws file created
+    deviceIp = "192.168.1.1"
+    sen = SEN.Device(deviceIp) #IP of device
     sen.connect()
     deviceType = sen.system.getDeviceType()
 
@@ -48,12 +48,13 @@ def main():
     sen.streaming.stopBackgroundStreaming()
 
     #evalute Data
-    ttime,axis0,axis1,axis2,error0,error1,error2 = zip(*sen.streaming.loadFile(filename+".aws")) #load file
-    
+    ttime,axis0,axis1,axis2,error0,error1,error2,temperature,humidity,pressure,refractiveIndex  = zip(*sen.streaming.loadFile(filename+".aws")) #load file
+    print(f"temperature: {temperature[0]} °C, humidity: {humidity[0]} %, pressure: {pressure[0]} mbar, refractive index: {refractiveIndex[0]} mA")
+
     #create dataframe
     data = pd.DataFrame()
     
-    #add to dataframe
+    #plot first axis: add to dataframe
     data['y in nm'] = np.array(axis0)/1000 #change from pm to nm
     data['Time1 in s'] = np.array(ttime)
     data.index = data['Time1 in s']

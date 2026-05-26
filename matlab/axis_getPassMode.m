@@ -7,7 +7,7 @@ function [value_errNo, value_mode] = axis_getPassMode(tcp)
 %           value_mode: mode 0 = single; pass 1 = dual pass
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.axis.getPassMode", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.axis.getPassMode", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

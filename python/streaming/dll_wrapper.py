@@ -16,23 +16,21 @@ else:
     CURRENT_PATH = os.path.join(CURRENT_PATH, "x86")
 
 if os.name == "nt":
-    DLL_PATH = os.path.join(CURRENT_PATH, "SEN.stream.dll")
+    DLL_PATH = os.path.join(CURRENT_PATH, "SEN.Stream.dll")
 else:
     raise Exception("Streaming not supported on this platform")
 
 API = ctypes.cdll.LoadLibrary(DLL_PATH)
-
-_GetLastStreamError = API.GetLastStreamError
-_GetLastStreamError.restype = ctypes.c_int
+# Removed in the new api
+# _GetLastStreamError = API.GetLastStreamError
+# _GetLastStreamError.restype = ctypes.c_int
 
 _OpenStream = API.OpenStream
 _OpenStream.restype = ctypes.c_void_p
 
 _CloseStream = API.CloseStream
 
-# TODO: expose packet size in dll
-# _GetPacketSize = API.GetPacketSize
-# _GetPacketSize.restype = ctypes.c_int
+_GetStreamInfo = API.GetStreamInfo
 
 _ReadStream = API.ReadStream
 _ReadStream.restype = ctypes.c_int

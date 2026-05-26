@@ -33,6 +33,34 @@ class System:
         self.device.handleError(response)
         return                 
 
+    def getAutoRestart(self):
+        # type: () -> (bool)
+        """
+        Gets the current configuration of the automatic measurement restart after reboot.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_enabled: enabled true = enabled; false = disabled (default: true)
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getAutoRestart")
+        self.device.handleError(response)
+        return response[1]                
+
+    def setAutoRestart(self, enable):
+        # type: (bool) -> ()
+        """
+        Enables or disables the automatic measurement restart after reboot.
+
+        Parameters:
+            enable: true = enable; false = disable
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".setAutoRestart", [enable, ])
+        self.device.handleError(response)
+        return                 
+
     def startOpticsAlignment(self):
         # type: () -> ()
         """
@@ -80,7 +108,7 @@ class System:
     def resetError(self, performRenormalization):
         # type: (bool) -> ()
         """
-        Resets a measurement error that has been raised with the aim to continue the interrupted measurement./nIt is configurable if an additional renormalization process (please refer to the device user manual) should be performed or not./n/n  This function can be used in two cases:/n 	1.
+        Resets a measurement error that has been raised with the aim to continue the interrupted measurement./nIt is configurable if an additional renormalization process (please refer to the IDS User Manual) should be performed or not./n  This function can be used in two cases:/n 	1.
 
         Parameters:
             performRenormalization: true = enable; false = disable
@@ -180,6 +208,34 @@ class System:
         self.device.handleError(response)
         return response[1]                
 
+    def setOptimizeParametersDuringInit(self, enableFineTuning):
+        # type: (bool) -> ()
+        """
+        Enables or disables the parameter optimization used for the automatic system compensation.
+
+        Parameters:
+            enableFineTuning: true = enable; false = disable
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".setOptimizeParametersDuringInit", [enableFineTuning, ])
+        self.device.handleError(response)
+        return                 
+
+    def getOptimizeParametersDuringInit(self):
+        # type: () -> (bool)
+        """
+        Reads out the current parameter optimization configuration used for the automatic system compensation.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_enableFineTuning: enableFineTuning true = enable; false = disable
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getOptimizeParametersDuringInit")
+        self.device.handleError(response)
+        return response[1]                
+
     def getInitMode(self):
         # type: () -> (int)
         """
@@ -207,4 +263,32 @@ class System:
         response = self.device.request(self.interface_name + ".setInitMode", [mode, ])
         self.device.handleError(response)
         return                 
+
+    def setErrorParameterSet(self, setnumber):
+        # type: (int) -> ()
+        """
+        Sets the error parameter set.
+
+        Parameters:
+            setnumber: 1 = default mode: standard beam interruption detection (less sensitive)/n2 = strict mode: more sensitive beam interruption detection; improves responsiveness but may increase false positives
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".setErrorParameterSet", [setnumber, ])
+        self.device.handleError(response)
+        return                 
+
+    def getErrorParameterSet(self):
+        # type: () -> (int)
+        """
+        Gets the applied error parameter set.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_setnumber: setnumber 1 = New defaults from 2.0.0: more senstive beam interrupt detection/n2 = Old defaults till 1.9.3: less senstive beam interrupt detection (legacy version)
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getErrorParameterSet")
+        self.device.handleError(response)
+        return response[1]                
 

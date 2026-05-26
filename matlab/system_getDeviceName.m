@@ -7,7 +7,7 @@ function [value_errNo, value_name] = system_getDeviceName(tcp)
 %           value_name: name current device name
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.getDeviceName", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.system_service.getDeviceName", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

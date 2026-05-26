@@ -12,7 +12,7 @@ function [value_errNo] = system_setTime(tcp, day, month, year, hour, minute, sec
 %           value_errNo: errNo error code, if there was an error, otherwise 0 for ok
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.setTime", "params": [%i, %i, %i, %i, %i, %i], "id": 1, "api": 2}', day, month, year, hour, minute, second);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.system_service.setTime", "params": [%i, %i, %i, %i, %i, %i], "id": 1, "api": 2}', day, month, year, hour, minute, second);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

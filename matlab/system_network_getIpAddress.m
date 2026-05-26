@@ -7,7 +7,7 @@ function [value_errNo, value_IP] = system_network_getIpAddress(tcp)
 %           value_IP: IP address as string
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.getIpAddress", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.network.getIpAddress", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

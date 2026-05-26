@@ -7,7 +7,7 @@ function [value_errNo, value_SSID] = system_network_getWifiSSID(tcp)
 %           value_SSID: SSID SSID string
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.getWifiSSID", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.network.getWifiSSID", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

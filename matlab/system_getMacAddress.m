@@ -7,7 +7,7 @@ function [value_errNo, value_mac] = system_getMacAddress(tcp)
 %           value_mac: mac mac address
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.getMacAddress", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.system_service.getMacAddress", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

@@ -9,7 +9,7 @@ function [value_warningNo, value_contrast, value_baseline] = displacement_getAxi
 %           value_baseline: baseline offset of the contrast measurement in permille
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.displacement.getAxisSignalQuality", "params": [%i], "id": 1, "api": 2}', axis);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.displacement.getAxisSignalQuality", "params": [%i], "id": 1, "api": 2}', axis);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

@@ -10,7 +10,7 @@ function [value_warningNo, value_contrast, value_baseline, value_mixcontrast] = 
 %           value_mixcontrast: mixcontrast lower contrast measurement when measuring a mixed contrast (indicated by error code)
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.adjustment.getContrastInPermille", "params": [%i], "id": 1, "api": 2}', axis);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.adjustment.getContrastInPermille", "params": [%i], "id": 1, "api": 2}', axis);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

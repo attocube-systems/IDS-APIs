@@ -113,6 +113,20 @@ class System_service:
         self.device.handleError(response)
         return response[1]                
 
+    def getHardwareInfo(self):
+        # type: () -> (str)
+        """
+        Retrieves the hardware information of the device.
+        Returns:
+            value_errNo: errNo error code
+            hardware_info_string: hardware_info_string
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getHardwareInfo")
+        self.device.handleError(response)
+        return response[1]                
+
     def getHostname(self):
         # type: () -> (str)
         """

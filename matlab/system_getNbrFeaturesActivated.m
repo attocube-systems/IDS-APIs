@@ -7,7 +7,7 @@ function [value_errNo, value_nbr] = system_getNbrFeaturesActivated(tcp)
 %           value_nbr: nbr the number of activated features
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.system.getNbrFeaturesActivated", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.system.getNbrFeaturesActivated", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

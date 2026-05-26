@@ -7,7 +7,7 @@ function [value_errNo] = system_network_setProxyServer(tcp, proxyServer)
 %           value_errNo: errNo error code, if there was an error, otherwise 0 for ok
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.setProxyServer", "params": [%s], "id": 1, "api": 2}', proxyServer);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.network.setProxyServer", "params": [%s], "id": 1, "api": 2}', proxyServer);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

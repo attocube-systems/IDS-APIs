@@ -7,7 +7,7 @@ function [value_errNo] = system_network_setWifiPassphrase(tcp, psk)
 %           value_errNo: errNo error code, if there was an error, otherwise 0 for ok
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.setWifiPassphrase", "params": [%s], "id": 1, "api": 2}', psk);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.network.setWifiPassphrase", "params": [%s], "id": 1, "api": 2}', psk);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

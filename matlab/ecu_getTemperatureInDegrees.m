@@ -7,7 +7,7 @@ function [errNo, temperature] = ecu_getTemperatureInDegrees(tcp)
 %           temperature: value in degrees Celsius
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.ecu.getTemperatureInDegrees", "params": [], "id": 1, "api": 2}');
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.ecu.getTemperatureInDegrees", "params": [], "id": 1, "api": 2}');
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

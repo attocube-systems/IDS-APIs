@@ -8,7 +8,7 @@ function [errNo] = ecu_setRefractiveIndexCompensationMode(tcp, axis, mode)
 %           errNo: error code, if there was an error, otherwise 0 for ok
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.ecu.setRefractiveIndexCompensationMode", "params": [%i, %i], "id": 1, "api": 2}', axis, mode);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.ecu.setRefractiveIndexCompensationMode", "params": [%i, %i], "id": 1, "api": 2}', axis, mode);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

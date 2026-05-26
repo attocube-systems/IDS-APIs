@@ -8,7 +8,7 @@ function [errNo, apply] = nlc_getLutApplied(tcp, axis)
 %           apply: true = applied; false = disabled
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.nlc.getLutApplied", "params": [%i], "id": 1, "api": 2}', axis);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.nlc.getLutApplied", "params": [%i], "id": 1, "api": 2}', axis);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

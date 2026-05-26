@@ -9,7 +9,7 @@ function [value_errNo] = realtime_setAaf(tcp, enable, attenuation, window)
 %           value_errNo: errNo error code, if there was an error, otherwise 0 for ok
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.realtime.setAaf", "params": [%i, %i, %i], "id": 1, "api": 2}', enable, attenuation, window);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.realtime.setAaf", "params": [%i, %i, %i], "id": 1, "api": 2}', enable, attenuation, window);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

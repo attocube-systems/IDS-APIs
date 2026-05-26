@@ -7,7 +7,7 @@ function [value_errNo] = realtime_setRtOutMode(tcp, rtOutMode)
 %           value_errNo: errNo error code, if there was an error, otherwise 0 for ok
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.sen.realtime.setRtOutMode", "params": [%i], "id": 1, "api": 2}', rtOutMode);
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "sen", "method": "com.attocube.sen.realtime.setRtOutMode", "params": [%i], "id": 1, "api": 2}', rtOutMode);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

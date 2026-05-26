@@ -38,7 +38,7 @@ class Axis:
     def getMasterAxis(self):
         # type: () -> (int)
         """
-        Returns the master axis (for more information, please refer to the device user manual).
+        Returns the master axis (for more information, please refer to the IDS User Manual).
         Returns:
             value_errNo: errNo error code, if there was an error, otherwise 0 for ok
             value_axis: axis [0|1|2]
@@ -52,7 +52,7 @@ class Axis:
     def setMasterAxis(self, axis):
         # type: (int) -> ()
         """
-        Sets the master axis (for more information, please refer to the device user manual).
+        Sets the master axis (for more information, please refer to the IDS User Manual).
 
         Parameters:
             axis: [0|1|2]
@@ -104,6 +104,22 @@ class Axis:
         response = self.device.request(self.interface_name + ".getAutoMasterAxis")
         self.device.handleError(response)
         return response[1]                
+
+    def getSupportedAxes(self):
+        # type: () -> (bool, bool, bool)
+        """
+        Gets supported IDS axes for application.
+        Returns:
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_supportedAxis1: supportedAxis1 true = supported; false = unsupported
+            value_supportedAxis2: supportedAxis2 true = supported; false = unsupported
+            value_supportedAxis3: supportedAxis3 true = supported; false = unsupported
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getSupportedAxes")
+        self.device.handleError(response)
+        return response[1], response[2], response[3]                
 
     def discard(self):
         # type: () -> ()
